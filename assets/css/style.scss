@@ -50,6 +50,10 @@ body {
   letter-spacing: 0;
 }
 
+.markdown-body > h1:first-child {
+  display: none;
+}
+
 .markdown-body h1 {
   margin: 0 0 20px;
   padding-bottom: 18px;
