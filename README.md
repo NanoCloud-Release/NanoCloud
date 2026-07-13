@@ -70,7 +70,7 @@
 Telegram 会限制部分免费账户的视频速度；经常播放视频时卡顿，瓶颈可能来自 Telegram 账户而不是 NanoCloud 链路。
 
 ## 其他文档
-- [注意事项与故障排查](docs/02-network-and-troubleshooting.md)
+- [注意事项与故障排查](常见问题排查.md)
 
 # 官方入口
 [NanoCloudAir/NanoCloud](https://github.com/NanoCloudAir/NanoCloud)
