@@ -1,0 +1,6 @@
+title: NanoCloud
+description: 中国电信晚高峰稳定连接，适合流媒体、ChatGPT 和日常网络访问
+lang: zh-CN
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-seo-tag
