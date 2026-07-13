@@ -101,5 +101,3 @@
 ## 更多信息
 
 - [注意事项与故障排查](常见问题排查.md)
-- [NanoCloud 官方仓库](https://github.com/NanoCloudAir/NanoCloud)
-- [永久导航](https://nanoair.github.io/)
