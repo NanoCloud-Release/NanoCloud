@@ -1,0 +1,43 @@
+site_name: 2026 机场选购与 NanoCloud 指南
+site_description: 2026 年 4 月封锁、中转与专线、自建成本、AI IP 质量及 NanoCloud 套餐指南
+copyright: 资料会随网络和服务状态变化，请查看每页核对日期。
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: green
+      accent: orange
+
+nav:
+  - 2026 网络现状: index.md
+  - 按需求选择: buying.md
+  - 方案与成本: testing.md
+  - NanoCloud: nanocloud.md
+  - 来源与更新: sources.md
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NanoCloud 机场推荐：2026 封锁现状、线路选择与自建成本</title>
+  <meta name="description" content="2026 年 4 月中转封锁、快连退出大陆和机场涨价后，比较直连、中转、专线与自建成本，并按 ChatGPT、IP 质量、流媒体和晚高峰需求选择 NanoCloud。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://nanocloud-release.github.io/NanoCloud/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="NanoCloud：4 月封锁后，机场该怎么选">
+  <meta property="og:description" content="从封锁现状、AI 与 IP 质量、流媒体、晚高峰和自建成本重新比较代理方案。">
+  <meta property="og:url" content="https://nanocloud-release.github.io/NanoCloud/">
+  <meta property="og:image" content="https://nanocloud-release.github.io/NanoCloud/assets/nanocloud-plans.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "NanoCloud 机场推荐：2026 封锁现状、线路选择与自建成本",
+    "url": "https://nanocloud-release.github.io/NanoCloud/",
+    "dateModified": "2026-07-14",
+    "inLanguage": "zh-CN",
+    "about": {
+      "@type": "Service",
+      "name": "NanoCloud",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "1",
+        "highPrice": "20",
+        "priceCurrency": "CNY"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">NanoCloud</a>
+    <nav aria-label="页面导航">
+      <a href="#situation">4 月现状</a>
+      <a href="#needs">按需求选</a>
+      <a href="#compare">方案</a>
+      <a href="#cost">成本</a>
+      <a href="#plans">套餐</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">2026 年 7 月核对 · 4 月封锁后的选择</p>
+        <h1>NanoCloud：现在选机场，先看能不能稳定完成你的事</h1>
+        <p class="hero-lead">中转拔线、快连退出大陆、机场涨价之后，节点数量和峰值测速已经不够。AI 是否正常路由、流媒体是否持续播放、晚高峰是否断流、IP 是否频繁触发验证，才是实际体验。</p>
+        <ul class="hero-facts" aria-label="NanoCloud 摘要">
+          <li><strong>¥1–20</strong> 月付</li>
+          <li><strong>100–650G</strong> 流量</li>
+          <li><strong>2–10 台</strong> 同时在线</li>
+          <li><strong>2 天 / 5G</strong> AFF 试用</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="https://edu.yuque.men/auth/register?code=KGPt0kjX"><i data-lucide="zap"></i> AFF 注册并试用</a>
+          <a class="button secondary" href="https://edu.yuque.men/auth/register"><i data-lucide="user-plus"></i> 普通注册</a>
+        </div>
+        <p class="disclosure">AFF 注册可试用白羊座 2 天，流量上限 5G；推荐者可能获得平台返佣。使用 AFF 或普通入口，套餐价格、设备数和服务权益均不受影响。</p>
+      </div>
+    </section>
+
+    <section id="situation" class="band alert-band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">4 月封锁后的实际变化</p>
+          <h2>2026 年 4 月，行业发生了什么</h2>
+          <p>中转上游、价格和客户端策略在 4 月集中发生变化，选购逻辑也随之改变。</p>
+        </div>
+        <ol class="timeline">
+          <li><time datetime="2026-04-02">4 月 2 日</time><div><h3>部分中转上游被整体清退</h3><p>LinuxDo 转发的机场公告称，影响从单个被通报 IP 扩大到部分上游带宽和机房，服务商临时增加直连节点。</p></div></li>
+          <li><time datetime="2026-04-07">4 月 7 日</time><div><h3>奶昔全线涨价 5%</h3><p>公告将原因归于能源和带宽成本上升，低价和长期折扣不再能替代当前线路体验。</p></div></li>
+          <li><time datetime="2026-04-25">4 月 25 日</time><div><h3>部分机场转向官方客户端</h3><p>目的是减少订阅和节点泄露；代价可能是 TUN、自定义、测速和可审计性下降。</p></div></li>
+          <li><time datetime="2026-04-28">4 月 28 日</time><div><h3>快连停止中国大陆业务</h3><p>中国大陆服务至今仍处于停止状态。</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="needs" class="band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">先写需求，再看套餐</p>
+          <h2>“好机场”取决于你要解决什么</h2>
+        </div>
+        <div class="needs-grid">
+          <article><i data-lucide="brain"></i><h3>ChatGPT 不降智</h3><p>检查模型是否按账户权益路由、长回答是否截断、地区是否漂移。IP 是因素之一，账号、设备和浏览器也会影响结果。</p></article>
+          <article><i data-lucide="shield-check"></i><h3>少人机验证</h3><p>关注 ASN、共享人数、历史滥用、地区一致性和 IP 稳定性，不把“原生”或某个风险分数当成保证。</p></article>
+          <article><i data-lucide="film"></i><h3>流媒体不卡顿</h3><p>连续播放 1080p/4K 并拖动进度条。峰值测速不代表单线程、目标 CDN 和解锁正常。</p></article>
+          <article><i data-lucide="clock-3"></i><h3>晚高峰不断流</h3><p>在自己的城市和运营商记录 20:00–23:00 的超时、断流、重连与节点切换。</p></article>
+          <article><i data-lucide="gauge"></i><h3>大流量与高速</h3><p>同时看月流量、倍率、带宽、设备数和公平使用规则。低价超大流量可能没有售后或稳定保证。</p></article>
+          <article><i data-lucide="wallet-cards"></i><h3>低价但可退出</h3><p>试用或月付降低失败成本。大幅年付折扣不能降低拔线、维护、停运和退款风险。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="compare" class="band muted">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">线路名称不是质量结论</p>
+          <h2>直连、中转、专线和自建怎么选</h2>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>方案</th><th>优势</th><th>主要风险</th><th>适合场景</th></tr></thead>
+            <tbody>
+              <tr><td><strong>直连机场</strong></td><td>低价、大流量、结构简单</td><td>普通公网受运营商与晚高峰影响</td><td>轻度、预算优先、备用</td></tr>
+              <tr><td><strong>中转机场</strong></td><td>入口可改善部分路由</td><td>国内入口是集中故障点</td><td>日常主力、流媒体、多地区</td></tr>
+              <tr><td><strong>IPLC / IEPL / IX</strong></td><td>跨境段低延迟和稳定潜力高</td><td>按线路和带宽询价</td><td>晚高峰刚需、远程工作</td></tr>
+              <tr><td><strong>单 VPS 自建</strong></td><td>控制权高、IP 低共享</td><td>IP 或线路被封后要换 IP，或另购机场作入口</td><td>AI 账号、固定出口</td></tr>
+              <tr><td><strong>链式代理</strong></td><td>机场负责传输，VPS 或商业宽带 IP 提供落地</td><td>至少两个故障点，需核对落地流量、并发和续费价</td><td>兼顾路线与出口一致性</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="cost" class="band cost-band">
+      <div class="inner cost-layout">
+        <div>
+          <p class="eyebrow">主流厂商原价，不用首月赠金冒充长期成本</p>
+          <h2>自建到底多少钱</h2>
+          <p>按 2026 年 7 月 13 日参考汇率 <strong>1 USD = 6.7776 CNY</strong>，AWS Lightsail、Vultr 和 Akamai 的 $5 入门 VPS 约 ¥33.89/月；DigitalOcean $6 实例约 ¥40.67/月。</p>
+          <p>AWS 符合条件的实例前三个月免费，首年约 ¥304.99，第二年恢复约 ¥406.66。短期推广金、税费、超额流量、换 IP 和维护时间不计入。</p>
+        </div>
+        <figure class="cost-chart" aria-labelledby="cost-caption">
+          <div class="cost-row"><span>NanoCloud</span><div class="bar nano" style="--value:20"><b>¥1–20</b></div></div>
+          <div class="cost-row"><span>机场 + IP</span><div class="bar nano" style="--value:36.94"><b>¥17.94–36.94</b></div></div>
+          <div class="cost-row"><span>单 VPS</span><div class="bar" style="--value:40.67"><b>¥33.89–40.67</b></div></div>
+          <div class="cost-row"><span>双节点中转</span><div class="bar" style="--value:67.78"><b>¥67.78 起</b></div></div>
+          <div class="cost-row"><span>三节点冗余</span><div class="bar" style="--value:101.66"><b>¥101.66 起</b></div></div>
+          <figcaption id="cost-caption">每月成本；“机场 + IP”按机场 ¥1–20 加 $2.5/月商业宽带 IP 计算。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="plans" class="band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">低成本、多地区、免维护</p>
+          <h2>NanoCloud 套餐</h2>
+          <p>中国电信晚高峰实测：网页打开、流媒体播放和 ChatGPT 长对话都保持稳定。</p>
+        </div>
+        <div class="plan-visual">
+          <img src="assets/nanocloud-plans.png" alt="NanoCloud 官方购买页的套餐卡片，显示白羊座、双鱼座、射手座与猎户座">
+          <p>套餐数据来自 2026 年 7 月 14 日登录后的官方购买页。</p>
+        </div>
+        <div class="table-scroll">
+          <table class="plans-table">
+            <thead><tr><th>套餐</th><th>月付</th><th>流量</th><th>带宽</th><th>设备</th><th>边界</th></tr></thead>
+            <tbody>
+              <tr><td>猎户座</td><td>¥1</td><td>100G</td><td>100Mbps</td><td>2 台</td><td>不保证速率/可用性，无售后、无退款</td></tr>
+              <tr class="recommended"><td>白羊座</td><td>¥10</td><td>300G</td><td>300Mbps</td><td>5 台</td><td>AFF 试用对应套餐</td></tr>
+              <tr><td>双鱼座</td><td>¥15</td><td>480G</td><td>500Mbps</td><td>8 台</td><td>高流量、多设备</td></tr>
+              <tr><td>射手座</td><td>¥20</td><td>650G</td><td>不限速</td><td>10 台</td><td>家庭共享、重度使用</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="trial-strip">
+          <div><h3>2 天 / 5G 的正确用法</h3><p>晚高峰、ChatGPT、验证码、流媒体、节点恢复各测一次，不反复跑满速。</p></div>
+          <a class="button primary" href="https://edu.yuque.men/auth/register?code=KGPt0kjX"><i data-lucide="arrow-right"></i> 开始试用</a>
+        </div>
+        <p class="boundary"><strong>产品边界：</strong>NanoCloud 是共享代理服务，不等同于固定住宅 IP、独享 IP 或企业 SLA。当前结算页只显示月付；TG 内部优惠没有公开固定折扣，因此本页按原价计算。</p>
+      </div>
+    </section>
+
+    <section id="method" class="band muted">
+      <div class="inner method-layout">
+        <div class="section-heading">
+          <p class="eyebrow">主力中转/专线与低成本备用，目标不同</p>
+          <h2>主力机场与备用机场，别用同一套顺序</h2>
+        </div>
+        <ol class="method-list">
+          <li><span>01</span><div><h3>先分主力和备用</h3><p>中转或专线承担晚高峰、AI 和流媒体；NanoCloud 作为低成本备用，负责在主力异常时保留可用通路。</p></div></li>
+          <li><span>02</span><div><h3>主力先验线路</h3><p>用自己的运营商测试晚高峰、TCP Ping、单线程和断流，不为“全节点专线”标签付费。</p></div></li>
+          <li><span>03</span><div><h3>高价要换来体验</h3><p>高价中转或专线必须同时通过流媒体、AI、验证码和稳定性测试；只快一张测速图不够。</p></div></li>
+          <li><span>04</span><div><h3>备用看月付和恢复</h3><p>NanoCloud 的价值是 ¥1–20 月付、100–650G 流量和低维护，切换时不承担高价年付风险。</p></div></li>
+          <li><span>05</span><div><h3>主备分路</h3><p>主力与备用使用不同入口或不同技术路线；出问题先切换，再决定是否续费。</p></div></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner footer-layout">
+      <p><a href="https://linux.do/t/topic/228080">选购方法</a> · <a href="https://aws.amazon.com/lightsail/pricing/">AWS 价格</a> · <a href="https://www.keeplets.net/blog/h20kxb">快连公开信</a></p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons({strokeWidth: 1.8});</script>
+</body>
+</html>
