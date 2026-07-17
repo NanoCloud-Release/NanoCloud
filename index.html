@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NanoCloud：先试再买的低成本共享代理服务</title>
-  <meta name="description" content="NanoCloud 提供 ¥1–20 月付、100–650G 流量和 2–10 台设备同时在线。先判断是否适合，再通过 2 天 / 5G 试用验证自己的网络。">
+  <title>NanoCloud 机场指南：套餐、试用、线路选择与故障排查</title>
+  <meta name="description" content="NanoCloud ¥1–20 月付套餐、2 天 / 5G 试用、客户端、线路与 IP 判断、自建成本和常见故障排查，一页查看。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://nanocloud-release.github.io/NanoCloud/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:title" content="NanoCloud：先试再买">
-  <meta property="og:description" content="低成本、多地区、免维护；用自己的网络完成晚高峰、AI、流媒体与恢复测试。">
+  <meta property="og:title" content="NanoCloud 机场指南：先试再买">
+  <meta property="og:description" content="套餐、客户端、试用方法、线路选择、成本和故障排查都集中在一个页面。">
   <meta property="og:url" content="https://nanocloud-release.github.io/NanoCloud/">
   <meta property="og:image" content="https://nanocloud-release.github.io/NanoCloud/assets/nanocloud-plans.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/nanocloud-plans.png" type="image/png">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=20260718">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "NanoCloud",
     "url": "https://nanocloud-release.github.io/NanoCloud/",
-    "dateModified": "2026-07-15",
+    "dateModified": "2026-07-18",
     "inLanguage": "zh-CN",
     "about": {
       "@type": "Service",
@@ -36,6 +36,54 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "手机流量能用，家庭 Wi-Fi 不能用怎么办？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "先切换到通用节点。如果恢复，依次检查光猫、路由器、运营商、设备和客户端的 IPv6。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "NanoCloud 白天正常，晚上断流怎么办？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "在 20:00–23:00 记录运营商、网络类型、节点、超时和重连，再用手机流量交叉测试。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "NanoCloud 节点全部变红怎么办？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "查看控制台节点状态，检查账户到期时间和剩余流量，更新订阅，再从流量节点切到通用节点。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "客户端初始化失败怎么办？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "彻底退出并卸载旧版，重启设备，再从 NanoCloud 控制台提供的入口安装。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "怎样判断 ChatGPT 是否受出口 IP 影响？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "固定账号、设备、浏览器、入口、模式和测试时间，只切换出口，按待测 A、正常 B、待测 A 的顺序重复同一组有标准答案的题。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">跳到主要内容</a>
@@ -46,18 +94,18 @@
       <span>NanoCloud</span>
     </a>
     <nav class="section-nav" aria-label="页面导航">
-      <a href="#paths">选择入口</a>
-      <a href="#overview">产品概览</a>
-      <a href="#fit">适合人群</a>
-      <a href="#start">开始使用</a>
+      <a href="#buying">怎么选</a>
+      <a href="#overview">套餐与客户端</a>
+      <a href="#start">试用</a>
+      <a href="#troubleshooting">排障</a>
     </nav>
     <div class="header-links">
       <a class="icon-link" href="https://github.com/NanoCloud-Release/NanoCloud" aria-label="GitHub 仓库" title="GitHub 仓库">
         <i data-lucide="github"></i>
       </a>
-      <a class="docs-link" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/">
+      <a class="docs-link" href="#buying">
         <i data-lucide="book-open-text"></i>
-        <span>完整文档</span>
+        <span>完整指南</span>
       </a>
     </div>
   </header>
@@ -66,9 +114,9 @@
     <section id="top" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-inner">
-        <p class="eyebrow">共享代理服务 · 2026 年 7 月 15 日核对</p>
+        <p class="eyebrow">共享代理服务 · 2026 年 7 月 17 日核对</p>
         <h1>NanoCloud</h1>
-        <p class="hero-lead">低成本、多地区、免维护。先用自己的运营商和常用设备完成晚高峰、AI、流媒体与故障恢复测试，再决定是否付费。</p>
+        <p class="hero-lead">月付最低 ¥1，不用自己维护服务器。先拿常用设备跑一遍晚高峰、AI 和流媒体，合适再付费。</p>
         <ul class="hero-facts" aria-label="NanoCloud 摘要">
           <li><strong>¥1–20</strong><span>月付</span></li>
           <li><strong>100–650G</strong><span>每月流量</span></li>
@@ -80,38 +128,38 @@
             <i data-lucide="zap"></i>
             <span>AFF 注册并试用</span>
           </a>
-          <a class="button secondary" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/buying/">
+          <a class="button secondary" href="#buying">
             <i data-lucide="list-checks"></i>
             <span>先看选择指南</span>
           </a>
         </div>
-        <p class="disclosure">AFF 注册可试用白羊座 2 天，流量上限 5G；推荐者可能获得平台返佣。也可使用不含邀请码的<a href="https://edu.yuque.men/auth/register">普通注册</a>。</p>
+        <p class="disclosure">AFF 注册可试用白羊座 2 天，流量上限 5G。推荐者可能获得平台返佣，也可以改用不含邀请码的<a href="https://edu.yuque.men/auth/register">普通注册</a>。</p>
       </div>
     </section>
 
     <section id="paths" class="band path-band">
       <div class="inner">
         <div class="section-heading">
-          <p class="eyebrow">从当前任务出发</p>
-          <h2>你现在要解决什么</h2>
-          <p>每个入口直达正式文档中的对应章节，不需要在三个站点反复寻找同一段内容。</p>
+          <p class="eyebrow">先找入口</p>
+          <h2>你现在卡在哪一步</h2>
+          <p>选择、试用和排障内容都集中在这个页面，下面三个入口直接跳到对应位置。</p>
         </div>
         <div class="path-grid">
-          <a class="path-card" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/buying/">
+          <a class="path-card" href="#buying">
             <i data-lucide="route"></i>
             <span class="path-label">购买前</span>
             <h3>比较线路与需求</h3>
             <p>按 AI、验证码、流媒体、晚高峰、流量和价格确定优先级。</p>
             <span class="text-link">打开选择指南 <i data-lucide="arrow-right"></i></span>
           </a>
-          <a class="path-card" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/getting-started/">
+          <a class="path-card" href="#start">
             <i data-lucide="rocket"></i>
             <span class="path-label">试用中</span>
             <h3>完成首次连接</h3>
             <p>注册、导入客户端、选择节点，并把 5G 试用流量用在关键测试上。</p>
             <span class="text-link">打开快速开始 <i data-lucide="arrow-right"></i></span>
           </a>
-          <a class="path-card" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/troubleshooting/">
+          <a class="path-card" href="#troubleshooting">
             <i data-lucide="life-buoy"></i>
             <span class="path-label">使用中</span>
             <h3>排查连接问题</h3>
@@ -126,22 +174,22 @@
       <div class="inner overview-layout">
         <div class="overview-copy">
           <p class="eyebrow">产品概览</p>
-          <h2>先看边界，再看价格</h2>
-          <p>NanoCloud 的核心优势是低月付、多地区和低维护成本。它使用共享出口，适合日常访问、流媒体和备用通路，但不能替代固定住宅 IP、独享 IP 或企业 SLA。</p>
+          <h2>套餐便宜，边界也要看清</h2>
+          <p>月付最低 ¥1，一个订阅可以切换多个地区，也不用自己维护服务器。出口由多人共享，日常访问、流媒体和备用通路够用。固定住宅 IP、独享 IP 或企业 SLA 需要另外找对应产品。</p>
           <dl class="fact-list">
             <div><dt>付费周期</dt><dd>当前公开结算页显示月付</dd></div>
             <div><dt>客户端</dt><dd>Android、Windows、macOS 与多种第三方客户端</dd></div>
-            <div><dt>节点类型</dt><dd>“通用”用于 IPv4；“流量”需要完整 IPv6 支持</dd></div>
+            <div><dt>节点类型</dt><dd>“通用”用于 IPv4。“流量”需要完整 IPv6 支持</dd></div>
             <div><dt>最终依据</dt><dd>价格、节点和优惠以控制台实时信息为准</dd></div>
           </dl>
-          <a class="inline-action" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/nanocloud/">
-            查看套餐、客户端与服务边界
-            <i data-lucide="arrow-up-right"></i>
+          <a class="inline-action" href="#start">
+            接着看怎么试
+            <i data-lucide="arrow-down"></i>
           </a>
         </div>
         <figure class="product-visual">
           <img src="assets/nanocloud-plans.png" alt="NanoCloud 控制台购买页中的套餐卡片">
-          <figcaption>套餐截图核对于 2026 年 7 月 14 日；购买前请再次核对控制台。</figcaption>
+          <figcaption>套餐截图核对于 2026 年 7 月 14 日。购买前请再看一次控制台。</figcaption>
         </figure>
       </div>
     </section>
@@ -149,12 +197,12 @@
     <section id="fit" class="band fit-band">
       <div class="inner">
         <div class="section-heading">
-          <p class="eyebrow">适合与不适合</p>
-          <h2>不要让低价替你做决定</h2>
+          <p class="eyebrow">使用场景</p>
+          <h2>先看自己怎么用</h2>
         </div>
         <div class="fit-layout">
           <div class="fit-column">
-            <div class="fit-title"><i data-lucide="check-circle-2"></i><h3>更适合</h3></div>
+            <div class="fit-title"><i data-lucide="check-circle-2"></i><h3>这些情况会比较省事</h3></div>
             <ul class="check-list">
               <li>希望用月付降低试错成本</li>
               <li>需要多地区、大流量或多设备共享</li>
@@ -163,7 +211,7 @@
             </ul>
           </div>
           <div class="fit-column caution">
-            <div class="fit-title"><i data-lucide="circle-alert"></i><h3>需要换方案</h3></div>
+            <div class="fit-title"><i data-lucide="circle-alert"></i><h3>这些需求另找对应产品</h3></div>
             <ul class="check-list">
               <li>必须长期使用固定或独享出口 IP</li>
               <li>需要企业 SLA、审计或明确赔付承诺</li>
@@ -172,7 +220,97 @@
             </ul>
           </div>
         </div>
-        <p class="fit-note">还在机场、自建 VPS 或链式代理之间比较？完整的成本与风险表在<a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/testing/">方案与成本</a>中维护。</p>
+        <p class="fit-note">还在机场、自建 VPS 或链式代理之间比较？继续看<a href="#cost">方案与成本</a>。</p>
+      </div>
+    </section>
+
+    <section id="buying" class="band guide-band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">购买前</p>
+          <h2>按需求选，别先数节点</h2>
+          <p>节点数量和峰值测速很好看，但它们回答不了 ChatGPT、验证码、晚高峰和流媒体到底能不能用。先写下自己的硬需求，再决定测什么。</p>
+        </div>
+        <div class="table-wrap">
+          <table class="guide-table">
+            <thead>
+              <tr><th>主要需求</th><th>先检查</th><th>别只看</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ChatGPT 稳定使用</td><td>固定变量后做多次 A-B-A 测试</td><td>模型自报名称、节点名或一次回答</td></tr>
+              <tr><td>少验证码</td><td>Human/Bot、滥用标记、地区和登录状态</td><td>“住宅”“原生”或单一风险分</td></tr>
+              <tr><td>流媒体不卡</td><td>单线程、解锁、连续播放和拖动进度条</td><td>多线程峰值测速</td></tr>
+              <tr><td>晚高峰稳定</td><td>自己运营商的超时、断流和重连</td><td>白天延迟</td></tr>
+              <tr><td>大流量</td><td>倍率、带宽、设备数和公平使用规则</td><td>节点总数</td></tr>
+              <tr><td>低价</td><td>月付总价、售后和失败成本</td><td>年付折扣</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guide-detail-grid">
+          <article class="guide-detail">
+            <p class="detail-label">AI 测试</p>
+            <h3>ChatGPT 到底有没有“降智”</h3>
+            <p>一次回答不能下结论。固定账号、设备、浏览器、入口、已选模式和测试时间，只切换出口。按“待测 A → 已知正常 B → 待测 A”开启新对话，每个出口至少做 3 次同一组有标准答案的题。</p>
+            <p>记录正确率、指令遵循、长回答截断、重新登录和思考状态。结果反复跟着出口变化，IP 才可能是主要变量。账号、设备、旧对话和服务方当时的路由也会影响结果。</p>
+          </article>
+          <article class="guide-detail">
+            <p class="detail-label">IP 与验证码</p>
+            <h3>Human 越高越好，但还要看滥用记录</h3>
+            <p>比较数据中心出口时，可以先看 Cloudflare Radar 中 ASN 的 Bot vs. Human。Human 占比高、Bot 占比低，一般更少遇到人机验证。这个数据是 ASN 的聚合值，不能代替单个 IP 检查。</p>
+            <ul class="plain-list">
+              <li>多个信誉库是否同时标记 abuse、spam 或 proxy</li>
+              <li>Google 无痕搜索是否提示异常流量</li>
+              <li>Reddit 未登录时能否直接打开</li>
+              <li>ChatGPT、Claude 是否反复验证或重新登录</li>
+              <li>连续使用几天后，地区和登录状态是否稳定</li>
+            </ul>
+          </article>
+        </div>
+        <p class="guide-note">陌生服务先试用或月付。连续用过一段时间再考虑季付或年付，工作刚需最好另留一条不同入口的短周期备用。</p>
+      </div>
+    </section>
+
+    <section id="network" class="band network-band">
+      <div class="inner compact-layout">
+        <div class="section-heading">
+          <p class="eyebrow">2026 年网络变化</p>
+          <h2>4 月以后，运营年限也得配合现状看</h2>
+          <p>这轮变化同时碰到了中转上游、价格和客户端分发。老牌服务也可能退出中国大陆，买之前要查最近公告和节点状态。</p>
+        </div>
+        <ol class="timeline">
+          <li><time datetime="2026-04-02">4 月 2 日</time><p>LinuxDo 转发的运维公告提到，部分中转上游和机房被整体清退。</p></li>
+          <li><time datetime="2026-04-07">4 月 7 日</time><p>奶昔公告显示全线涨价 5%，理由是能源和带宽成本上涨。</p></li>
+          <li><time datetime="2026-04-25">4 月 25 日</time><p>社区开始集中讨论官方客户端拥有更多节点、第三方订阅节点较少的情况。</p></li>
+          <li><time datetime="2026-04-28">4 月 28 日</time><p>快连宣布停止中国大陆业务并开放退款。</p></li>
+          <li><time datetime="2026-05-08">5 月 8 日</time><p>快连恢复全球标准运营和账户计时，中国大陆服务仍然停止。</p></li>
+          <li><time datetime="2026-05-15">5 月 15 日</time><p>快连 CEO 公开信再次确认无法继续面向中国大陆提供 VPN 服务。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="cost" class="band cost-band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">方案与成本</p>
+          <h2>共享机场、自建和链式代理差多少</h2>
+          <p>下面按 2026 年 7 月 13 日的参考汇率计算。税费、换 IP 和维护时间没有算进去。</p>
+        </div>
+        <div class="table-wrap">
+          <table class="guide-table cost-table">
+            <thead>
+              <tr><th>方案</th><th>月成本</th><th>得到什么</th><th>主要代价</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>NanoCloud</td><td>¥1–20</td><td>100–650G、多地区、2–10 台设备</td><td>共享出口，IP 会变化</td></tr>
+              <tr><td>NanoCloud + $2.5 商业宽带 IP</td><td>约 ¥17.94–36.94</td><td>机场传输，商业宽带 IP 落地</td><td>延迟增加，需要配置链式代理</td></tr>
+              <tr><td>单台主流 VPS</td><td>约 ¥33.89–40.67</td><td>单地区、约 1TB、出口较固定</td><td>自己维护，线路或 IP 出问题要处理</td></tr>
+              <tr><td>两台 $5 VPS 中转</td><td>约 ¥67.78 起</td><td>入口和落地分离</td><td>两个故障点，维护量更高</td></tr>
+              <tr><td>IPLC / IEPL</td><td>通常询价</td><td>跨境段减少普通公网影响</td><td>价格高，体验仍受入口和落地影响</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="guide-note">需要 AI 独立出口，又不想自己处理跨境线路时，可以让机场负责传输，再接 VPS 或商业宽带 IP 落地。白羊座加 $2.5/月落地，按本页汇率约 ¥26.94/月。</p>
       </div>
     </section>
 
@@ -180,8 +318,8 @@
       <div class="inner start-layout">
         <div class="section-heading">
           <p class="eyebrow">开始使用</p>
-          <h2>三步完成一次有效试用</h2>
-          <p>重点不是跑出最高测速，而是验证你每天真正需要的服务。</p>
+          <h2>三步跑完试用</h2>
+          <p>5G 不多，别反复跑满速。把流量留给平时真会用的服务。</p>
         </div>
         <ol class="step-list">
           <li>
@@ -190,19 +328,29 @@
           </li>
           <li>
             <span class="step-number">02</span>
-            <div><h3>在常用设备连接</h3><p>优先使用“通用”节点完成首次连接；只有网络与设备都支持 IPv6 时再测试“流量”节点。</p></div>
+            <div><h3>在常用设备连接</h3><p>第一次先用“通用”节点。确认网络与设备都支持 IPv6 后，再测试“流量”节点。</p></div>
           </li>
           <li>
             <span class="step-number">03</span>
             <div><h3>在晚高峰完成任务测试</h3><p>检查 AI 长对话、流媒体连续播放、验证码、断流和切换节点后的恢复，不反复跑满速。</p></div>
           </li>
         </ol>
+        <div class="trial-checks">
+          <h3>这五项各测一次</h3>
+          <dl>
+            <div><dt>晚高峰</dt><dd>20:00–23:00 分别用家庭宽带和手机流量，记录断流与重连。</dd></div>
+            <div><dt>AI 长对话</dt><dd>连续使用 10–20 分钟，观察截断、重登、验证码和地区漂移。</dd></div>
+            <div><dt>流媒体</dt><dd>播放 1080p 并拖动进度条，记下缓冲和切换节点后的恢复时间。</dd></div>
+            <div><dt>登录网站</dt><dd>打开常用 Google、AI 或社交账户，看识别国家和登录状态是否保持。</dd></div>
+            <div><dt>故障恢复</dt><dd>更新订阅、切换节点并重启客户端，确认自己能把连接恢复。</dd></div>
+          </dl>
+        </div>
         <div class="start-actions">
-          <a class="button primary" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/getting-started/">
-            <i data-lucide="book-open-check"></i>
-            <span>阅读完整步骤</span>
+          <a class="button primary" href="https://edu.yuque.men/auth/register?code=KGPt0kjX">
+            <i data-lucide="zap"></i>
+            <span>AFF 注册并试用</span>
           </a>
-          <a class="button quiet" href="https://nanocloud-release.readthedocs.io/zh-cn/latest/troubleshooting/">
+          <a class="button quiet" href="#troubleshooting">
             <i data-lucide="wrench"></i>
             <span>遇到问题</span>
           </a>
@@ -210,17 +358,116 @@
       </div>
     </section>
 
-    <section class="band evidence-band">
+    <section id="troubleshooting" class="band troubleshooting-band">
+      <div class="inner">
+        <div class="section-heading">
+          <p class="eyebrow">常见问题</p>
+          <h2>先做两分钟交叉测试</h2>
+          <p>先看控制台节点状态，再切“通用”节点、换地区、更新订阅，并在家庭 Wi-Fi 和手机流量之间交叉测试。哪一步恢复了，问题范围就缩小了。</p>
+        </div>
+        <div class="troubleshoot-grid">
+          <article>
+            <i data-lucide="wifi-off"></i>
+            <h3>手机流量能用，家庭 Wi-Fi 不能用</h3>
+            <p>先切“通用”节点。如果恢复，依次检查光猫、路由器、运营商、设备和客户端的 IPv6。旧路由器或部分地区不支持完整 IPv6，继续用“通用”节点即可。</p>
+          </article>
+          <article>
+            <i data-lucide="moon"></i>
+            <h3>白天正常，晚上断流</h3>
+            <p>在 20:00–23:00 记录城市、运营商、网络类型、节点、超时和重连。换地区后再用手机流量测试一次，能分清节点故障和本地运营商 QoS。</p>
+          </article>
+          <article>
+            <i data-lucide="radio-tower"></i>
+            <h3>节点全部变红</h3>
+            <p>查看控制台状态，检查账户到期时间和剩余流量，然后更新订阅。仍然全红时，从“流量”切到“通用”，再试香港、日本、新加坡或美国方向。</p>
+          </article>
+          <article>
+            <i data-lucide="app-window"></i>
+            <h3>客户端初始化失败</h3>
+            <p>彻底退出并卸载旧版，重启设备，再从控制台入口安装。Windows 重装后仍失败，先清除系统代理，最后再考虑“网络重置”。</p>
+          </article>
+          <article>
+            <i data-lucide="power"></i>
+            <h3>关机后开机无法联网</h3>
+            <p>关机前先在客户端断开连接，再从系统托盘彻底退出。已经发生时，关闭残留系统代理并重启网络适配器。</p>
+          </article>
+          <article>
+            <i data-lucide="message-circle-question"></i>
+            <h3>还是解决不了</h3>
+            <p>查看 <a href="https://t.me/NanoCloudWiki">NanoCloudWiki</a>，使用 <a href="https://t.me/NanoAir_bot">@NanoAir_bot</a> 或控制台工单反馈。附上系统、客户端版本、城市、运营商、节点和完整错误文本，记得遮住订阅链接与 token。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="band evidence-band">
       <div class="inner evidence-layout">
         <div>
-          <p class="eyebrow">可核对、可更正</p>
-          <h2>详细事实只在正式文档维护</h2>
-          <p>行业事件、成本表、套餐细节、排障步骤和 AFF 披露都带核对日期与来源。发现过时信息时，可以从文档直接进入 GitHub 提交更正。</p>
+          <p class="eyebrow">来源与更新</p>
+          <h2>数字和案例从哪里来</h2>
+          <p>套餐、节点和客户端信息核对于 2026 年 7 月 17 日。网络事件优先采用服务商公告，论坛讨论用于补充用户案例与反例。VPS 成本使用公开价格，汇率取自 Frankfurter。</p>
+          <p>论坛内容不能替代产品公告，也不能证明 NanoCloud 当前质量。AI 与 IP 相关案例的结论彼此冲突，所以页面只把出口 IP 作为变量之一。</p>
         </div>
         <div class="evidence-links">
-          <a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/sources/"><i data-lucide="database"></i><span>来源与更新记录</span><i data-lucide="arrow-right"></i></a>
           <a href="https://github.com/NanoCloud-Release/NanoCloud/issues/new"><i data-lucide="message-square-warning"></i><span>报告错误或过时信息</span><i data-lucide="arrow-right"></i></a>
           <a href="https://github.com/NanoCloud-Release/NanoCloud"><i data-lucide="github"></i><span>查看仓库与变更</span><i data-lucide="arrow-right"></i></a>
+        </div>
+        <div id="source-list" class="source-groups">
+          <section class="source-group">
+            <h3>网络事件与官方公告</h3>
+            <ul>
+              <li><a href="https://linux.do/t/topic/1881437">4 月 2 日中转上游与机房清退讨论</a></li>
+              <li><a href="https://linux.do/t/topic/1875969">4 月 7 日奶昔涨价公告截图</a></li>
+              <li><a href="https://linux.do/t/topic/2052417/77">4 月 25 日官方客户端节点讨论</a></li>
+              <li><a href="https://linux.do/t/topic/2081802">4 月中转事件后续讨论</a></li>
+              <li><a href="https://www.keeplets.net/blog/c130bd">快连 4 月 28 日停止中国大陆业务</a></li>
+              <li><a href="https://www.keeplets.net/blog/f20bkd">快连 5 月 8 日全球运营公告</a></li>
+              <li><a href="https://www.keeplets.net/blog/h20kxb">快连 5 月 15 日 CEO 公开信</a></li>
+            </ul>
+          </section>
+          <section class="source-group">
+            <h3>选购、线路与稳定性</h3>
+            <ul>
+              <li><a href="https://linux.do/t/topic/228080">LinuxDo 初入机场避坑指南</a></li>
+              <li><a href="https://linux.do/t/topic/65398">LinuxDo 机场稳定性测试</a></li>
+              <li><a href="https://linux.do/t/topic/2486997">LinuxDo 订阅大排查 4.0</a></li>
+              <li><a href="https://www.v2ex.com/t/923290">V2EX 真假专线讨论</a></li>
+              <li><a href="https://www.v2ex.com/t/917045">V2EX IPLC 使用体验</a></li>
+              <li><a href="https://www.nodeseek.com/post-593805-1">NodeSeek 用户经验</a></li>
+              <li><a href="https://limbopro.com/865.html">毒奶长期机场记录</a></li>
+              <li><a href="https://limbopro.com/archives/35213.html">毒奶隐私与安全建议</a></li>
+              <li><a href="https://www.duyaoss.com/">毒药 DuyaoSS</a>、<a href="https://www.haitunt.org/">海豚测速</a></li>
+            </ul>
+          </section>
+          <section class="source-group">
+            <h3>AI、IP 与链式代理</h3>
+            <ul>
+              <li><a href="https://linux.do/t/topic/2418711/1">节点质量影响 GPT 模型的个案</a></li>
+              <li><a href="https://linux.do/t/topic/2451019/2">同一节点下不同账号的反例</a></li>
+              <li><a href="https://linux.do/t/topic/2451019/4">思考状态观察</a></li>
+              <li><a href="https://linux.do/t/topic/2451019/5">账号因素讨论</a></li>
+              <li><a href="https://linux.do/t/topic/2451019/8">网页端与手机客户端差异</a></li>
+              <li><a href="https://linux.do/t/topic/2452025/1">同一机房 IP 下账号与对话差异</a></li>
+              <li><a href="https://linux.do/t/topic/2452025/4">高风险 VPS 未降智的反例</a></li>
+              <li><a href="https://idcflare.com/t/topic/18792">IDC Flare VPS IP 质量检测</a></li>
+              <li><a href="https://developers.cloudflare.com/radar/concepts/bot-classes/">Cloudflare Radar Bot classes</a></li>
+              <li><a href="https://linux.do/t/topic/1428540">自建与机场取舍</a></li>
+              <li><a href="https://linux.do/t/topic/888046">LinuxDo 链式代理图解</a></li>
+              <li><a href="https://linux.do/t/topic/1993844">从购买服务器到自建节点</a></li>
+            </ul>
+          </section>
+          <section class="source-group">
+            <h3>官方价格、汇率与研究</h3>
+            <ul>
+              <li><a href="https://aws.amazon.com/lightsail/pricing/">AWS Lightsail Pricing</a></li>
+              <li><a href="https://www.digitalocean.com/pricing/droplets">DigitalOcean Droplet Pricing</a></li>
+              <li><a href="https://api.vultr.com/v2/plans?type=vc2&amp;per_page=100">Vultr Plans API</a></li>
+              <li><a href="https://api.linode.com/v4/linode/types?page_size=100">Akamai Cloud Linode Types API</a></li>
+              <li><a href="https://api.frankfurter.app/latest?from=USD&amp;to=CNY">Frankfurter USD/CNY</a></li>
+              <li><a href="https://arxiv.org/abs/2606.18427">中国机场生态研究论文</a></li>
+            </ul>
+          </section>
+          <p class="source-update">2026 年 7 月 18 日：旧文档内容与来源清单已合并到本页。</p>
         </div>
       </div>
     </section>
@@ -230,13 +477,14 @@
     <div class="inner footer-layout">
       <div>
         <strong>NanoCloud</strong>
-        <p>共享代理服务；付款前以控制台实时信息为准。</p>
+        <p>共享代理服务。付款前以控制台实时信息为准。</p>
       </div>
       <nav class="footer-nav" aria-label="页脚导航">
-        <a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/buying/">选择指南</a>
-        <a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/nanocloud/">NanoCloud</a>
-        <a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/troubleshooting/">使用与排障</a>
-        <a href="https://nanocloud-release.readthedocs.io/zh-cn/latest/sources/">来源与更新</a>
+        <a href="#buying">选择指南</a>
+        <a href="#network">网络变化</a>
+        <a href="#cost">成本</a>
+        <a href="#troubleshooting">使用与排障</a>
+        <a href="#sources">来源与更新</a>
         <a href="https://github.com/NanoCloud-Release/NanoCloud">GitHub</a>
       </nav>
     </div>

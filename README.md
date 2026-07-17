@@ -7,7 +7,7 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 ![每月流量](https://img.shields.io/badge/每月流量-100G--650G-b54708)
 ![同时在线](https://img.shields.io/badge/同时在线-2--10台-8250df)
 
- [产品主页](https://nanocloud-release.github.io/NanoCloud/) · [完整文档](https://nanocloud-release.readthedocs.io/zh-cn/latest/)
+ [产品主页](https://nanocloud-release.github.io/NanoCloud/) · [完整文档](https://nanocloud-release.github.io/NanoCloud/#buying)
 
 ## NanoCloud 官网与注册入口
 
