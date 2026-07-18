@@ -591,6 +591,10 @@ section[id] {
   color: var(--muted);
 }
 
+.guide-note strong {
+  color: var(--ink);
+}
+
 .network-band {
   background: var(--paper);
 }
@@ -771,6 +775,16 @@ section[id] {
 
 .evidence-band .eyebrow {
   color: #9eddb5;
+}
+
+.evidence-band p a {
+  color: #cfe1d5;
+  font-weight: 720;
+  text-underline-offset: 3px;
+}
+
+.evidence-band p a:hover {
+  color: #a8e7bf;
 }
 
 .evidence-links {
