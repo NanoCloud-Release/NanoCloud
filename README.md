@@ -7,15 +7,17 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 ![每月流量](https://img.shields.io/badge/每月流量-100G--650G-b54708)
 ![同时在线](https://img.shields.io/badge/同时在线-2--10台-8250df)
 
- [产品主页](https://nanocloud-release.github.io/NanoCloud/) · [完整文档](https://nanocloud-release.github.io/NanoCloud/#buying)
+ [Pages 指南](https://nanocloud-release.github.io/NanoCloud/) · [选购与测试](https://nanocloud-release.github.io/NanoCloud/#buying)
 
-## NanoCloud 官网与注册入口
+## NanoCloud 注册入口与独立指南
+
+本仓库和 Pages 由 NanoCloud-Release 独立维护。NanoCloud 的注册、套餐购买和账号管理均在 `edu.yuque.men` 控制台完成。AFF 入口带有邀请码，推荐者可能获得平台返佣。普通注册入口不含邀请码。
 
 | 入口 | 地址 | 用途 |
 | --- | --- | --- |
-| AFF 注册 | [注册并试用](https://edu.yuque.men/auth/register?code=KGPt0kjX) | 白羊座 2 天试用，流量上限 5G |
+| AFF 注册 | [注册并试用](https://edu.yuque.men/auth/register?code=KGPt0kjX&utm_source=github&utm_medium=readme&utm_campaign=nanocloud_trial) | 白羊座 2 天试用，流量上限 5G |
 | 普通注册 | [直接注册](https://edu.yuque.men/auth/register) | 不使用邀请码 |
-| 产品主页 | [NanoCloud 机场介绍](https://nanocloud-release.github.io/NanoCloud/) | 套餐、客户端、教程和排障 |
+| Pages 指南 | [NanoCloud 机场介绍](https://nanocloud-release.github.io/NanoCloud/) | 套餐、客户端、教程和排障 |
 | 教程频道 | [NanoCloudWiki](https://t.me/NanoCloudWiki) | 客户端下载与使用教程 |
 | Telegram Bot | [@NanoAir_bot](https://t.me/NanoAir_bot) | 购买、订阅、签到与反馈 |
 
