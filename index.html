@@ -445,6 +445,11 @@
             <p>如果 Nano 登录时显示 <code>type 'String' is not a subtype of type 'int' of 'index'</code>，客户端可能没有成功建立完整的 HTTPS 信任链。安装教程提供的 <code>https_windows.crt</code> 后，Windows 可以使用其中的 <code>ISRG Root X1</code> 公钥验证登录服务器的证书链。</p>
           </div>
 
+          <figure class="certificate-screenshot">
+            <img src="assets/nano-login-string-index-error.png" width="1440" height="1008" alt="Nano Windows 客户端登录时出现 String 不能作为 int 索引的错误">
+            <figcaption>Nano Windows 客户端登录失败时显示的数据解析错误。</figcaption>
+          </figure>
+
           <div class="certificate-diagram" role="img" aria-label="HTTPS 证书验证流程图">
             <pre class="mermaid">
 flowchart TD
