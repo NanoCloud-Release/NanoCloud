@@ -773,6 +773,24 @@ section[id] {
   overflow-wrap: anywhere;
 }
 
+.certificate-screenshot {
+  max-width: 960px;
+  margin: 0 0 32px;
+}
+
+.certificate-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.certificate-screenshot figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .certificate-diagram {
   width: 100%;
   min-height: 420px;
