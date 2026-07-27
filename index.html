@@ -438,6 +438,43 @@
             <p>查看 <a href="https://t.me/NanoCloudWiki">NanoCloudWiki</a>，使用 <a href="https://t.me/NanoAir_bot">@NanoAir_bot</a> 或控制台工单反馈。附上系统、客户端版本、城市、运营商、节点和完整错误文本，记得遮住订阅链接与 token。</p>
           </article>
         </div>
+        <article class="certificate-guide" aria-labelledby="certificate-title">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Windows 登录排障</p>
+            <h2 id="certificate-title">为什么要安装证书</h2>
+            <p>如果 Nano 登录时显示 <code>type 'String' is not a subtype of type 'int' of 'index'</code>，客户端可能没有成功建立完整的 HTTPS 信任链。安装教程提供的 <code>https_windows.crt</code> 后，Windows 可以使用其中的 <code>ISRG Root X1</code> 公钥验证登录服务器的证书链。</p>
+          </div>
+
+          <div class="certificate-diagram" role="img" aria-label="HTTPS 证书验证流程图">
+            <pre class="mermaid">
+flowchart TD
+    A["Nano 发起 HTTPS 连接"] --&gt; B["服务器返回证书链"]
+    B --&gt; C["Windows 使用 ISRG Root X1 公钥&lt;br/&gt;验证证书链签名"]
+    C --&gt; D{"签名、域名和有效期&lt;br/&gt;是否全部通过？"}
+    D --&gt;|"是"| E["协商临时会话密钥"]
+    E --&gt; F["建立加密通道并提交登录请求"]
+    D --&gt;|"否"| G["TLS 连接或接口响应异常"]
+    G --&gt; H["登录失败或数据解析错误"]
+            </pre>
+            <noscript>启用 JavaScript 后可查看 HTTPS 证书验证流程图。</noscript>
+          </div>
+
+          <div class="certificate-answer">
+            <h3>安装这个证书有危害吗，会被 MITM 吗？</h3>
+            <p><strong>安全结论：</strong>经核验，教程中的 <code>https_windows.crt</code> 是 Let’s Encrypt 的公开根证书 <code>ISRG Root X1</code>。文件只包含证书和公钥，不包含根 CA 私钥。Nano 无法仅凭这个文件签发任意网站的假证书，也无法用它解密 HTTPS 流量。</p>
+            <p>真正的 MITM 抓包需要抓包程序掌握自建 CA 的私钥、让设备信任该自建 CA，并处于流量转发路径上。Burp Suite、Charles、Fiddler 和 mitmproxy 安装的通常是由抓包程序自己控制私钥的 CA，这与公开的 <code>ISRG Root X1</code> 不同。</p>
+          </div>
+
+          <details class="certificate-details">
+            <summary>为什么会是这样的</summary>
+            <div>
+              <p>截图中的错误是客户端数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，实际却收到了字符串或其他异常内容。TLS 信任链不完整、网络拦截、服务器异常和客户端兼容性问题都可能产生这种现象，所以这条错误本身不能证明证书缺失是唯一原因。</p>
+              <p><code>ISRG Root X1</code> 是 Internet Security Research Group 运营、供 Let’s Encrypt 证书体系使用的公开信任锚。客户端使用根证书中的公钥验证证书链签名。根证书不提供 HTTPS 会话的解密密钥；会话密钥由客户端与服务器在每次连接中临时协商，不能从根证书公钥反推出。</p>
+              <p>签发可被系统接受的假网站证书需要根 CA 或受信任中间 CA 的私钥。教程证书中没有该私钥，Nano 因而不能用它为其他网站动态签发替代证书。抓包软件则会自行生成 CA 和私钥，把自己的 CA 加入系统信任库，再分别与客户端和真实服务器建立两条加密连接。</p>
+              <p>核验指纹：<code>96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6</code>。该结论只适用于指纹一致的证书文件，不代表其他来源不明的根证书也可以安全安装。</p>
+            </div>
+          </details>
+        </article>
       </div>
     </section>
 
@@ -533,6 +570,15 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "neutral",
+      securityLevel: "strict",
+      flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+  </script>
   <script>
     if (window.lucide) {
       window.lucide.createIcons({ strokeWidth: 1.8 });

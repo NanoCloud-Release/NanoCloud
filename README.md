@@ -98,6 +98,46 @@ AFF 入口已带邀请码 `KGPt0kjX`。通过它注册，推荐者可能收到�
 
 [打开 Pages 上的完整排查步骤](https://nanocloud-release.github.io/NanoCloud/#troubleshooting)
 
+### 为什么要安装证书
+
+Windows 版 Nano 登录时如果出现下面的错误，客户端可能没有成功建立完整的 HTTPS 信任链：
+
+```text
+登录失败：type 'String' is not a subtype of type 'int' of 'index'
+```
+
+安装教程提供的 `https_windows.crt` 后，Windows 可以使用其中的 `ISRG Root X1` 公钥验证 Nano 登录服务器的证书链。证书在 HTTPS 连接中的作用如下：
+
+```mermaid
+flowchart TD
+    A["Nano 发起 HTTPS 连接"] --> B["服务器返回证书链"]
+    B --> C["Windows 使用 ISRG Root X1 公钥<br/>验证证书链签名"]
+    C --> D{"签名、域名和有效期<br/>是否全部通过？"}
+    D -->|"是"| E["协商临时会话密钥"]
+    E --> F["建立加密通道并提交登录请求"]
+    D -->|"否"| G["TLS 连接或接口响应异常"]
+    G --> H["登录失败或数据解析错误"]
+```
+
+### 安装这个证书有危害吗，会被 MITM 吗？
+
+**安全结论：**经核验，教程中的 `https_windows.crt` 是 Let’s Encrypt 的公开根证书 `ISRG Root X1`。文件只包含证书和公钥，不包含根 CA 私钥。Nano 无法仅凭这个文件签发任意网站的假证书，也无法用它解密 HTTPS 流量。
+
+真正的 MITM 抓包需要抓包程序掌握自建 CA 的私钥、让设备信任该自建 CA，并处于流量转发路径上。Burp Suite、Charles、Fiddler 和 mitmproxy 安装的通常是由抓包程序自己控制私钥的 CA，这与公开的 `ISRG Root X1` 根证书不同。
+
+<details>
+<summary><strong>为什么会是这样的</strong></summary>
+
+截图中的 `type 'String' is not a subtype of type 'int' of 'index'` 是客户端数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，实际却收到了字符串或其他异常内容。TLS 信任链不完整、网络拦截、服务器异常和客户端兼容性问题都可能产生这种现象，所以这条错误本身不能证明证书缺失是唯一原因。
+
+`ISRG Root X1` 是 Internet Security Research Group 运营、供 Let’s Encrypt 证书体系使用的公开信任锚。它的作用是让客户端使用根证书中的公钥验证证书链签名，确认服务器证书最终来自受信任的 CA。根证书不提供 HTTPS 会话的解密密钥；会话密钥由客户端与服务器在每次连接中临时协商，不能从根证书公钥反推出。
+
+签发可被系统接受的假网站证书需要根 CA 或受信任中间 CA 的私钥。教程证书中没有 `ISRG Root X1` 私钥，Nano 因而不能用它为 Google、银行或其他网站动态签发替代证书。抓包软件则会自行生成 CA 和私钥，把自己的 CA 加入系统信任库，再分别与客户端和真实服务器建立两条加密连接。
+
+核验指纹：`ISRG Root X1` 的 SHA-256 证书指纹为 `96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6`。上述结论只适用于指纹一致的证书文件，不代表其他来源不明的根证书也可以安全安装。
+
+</details>
+
 ## 需求分析
 
 | 主要需求 | 优先检查 | 误区 |

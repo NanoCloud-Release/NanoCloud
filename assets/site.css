@@ -753,6 +753,77 @@ section[id] {
   font-weight: 720;
 }
 
+.certificate-guide {
+  margin-top: 52px;
+  padding-top: 44px;
+  border-top: 1px solid var(--line);
+}
+
+.compact-heading {
+  margin-bottom: 24px;
+}
+
+.compact-heading code,
+.certificate-answer code,
+.certificate-details code {
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  background: #f4f6f4;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.certificate-diagram {
+  width: 100%;
+  min-height: 420px;
+  padding: 24px 12px;
+  border-block: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+.certificate-diagram .mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background: transparent;
+}
+
+.certificate-diagram svg {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+}
+
+.certificate-answer {
+  max-width: 880px;
+  padding: 34px 0 24px;
+}
+
+.certificate-answer h3 {
+  font-size: 22px;
+}
+
+.certificate-answer p,
+.certificate-details p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.certificate-details {
+  max-width: 880px;
+  border-block: 1px solid var(--line);
+}
+
+.certificate-details summary {
+  padding: 18px 0;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.certificate-details > div {
+  padding: 0 0 24px;
+}
+
 .evidence-band {
   background: var(--charcoal);
   color: #c8d2cc;
@@ -995,6 +1066,16 @@ button:focus-visible {
   .troubleshoot-grid {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .certificate-guide {
+    margin-top: 36px;
+    padding-top: 34px;
+  }
+
+  .certificate-diagram {
+    min-height: 520px;
+    padding-inline: 0;
   }
 
   .table-wrap {
