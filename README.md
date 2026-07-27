@@ -7,39 +7,46 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 ![每月流量](https://img.shields.io/badge/每月流量-100G--650G-b54708)
 ![同时在线](https://img.shields.io/badge/同时在线-2--10台-8250df)
 
- [Pages 指南](https://nanocloud-release.github.io/NanoCloud/) · [选购与测试](https://nanocloud-release.github.io/NanoCloud/#buying)
+## NanoCloud 能提供什么
 
-## NanoCloud 注册入口与独立指南
+- 四档套餐 100（100Mbps）、300（300Mbps）、480（500Mbps）、650G（不限速） 月流量。
+- 香港、东京、新加坡和美国西部等地区节点，协议包括 VLESS、TUIC 和 Hysteria。
+- 官方客户端需要跟着教程配置，但不需要clash verge一样进行复杂配置。——<https://ip.skk.moe/split-tunnel> 可查询分流效果
+- [@NanoAir_bot](https://t.me/NanoAir_bot) 可用于购买、获取订阅和每日签到（每月高达90G）和工单反馈；
+- 白羊座及以上套餐另有 Telegram 专用代理。
+- 详细的文档信息。
+- 官网直连，无需代理即可获取配置。
 
+## NanoCloud不提供什么
+
+- 家宽
+- IELP/IPLC
+- 中转
+
+## NanoCloud 注册入口与[独立指南](https://nanocloud-release.github.io/NanoCloud/)
 
 | 入口 | 地址 | 用途 |
 | --- | --- | --- |
-| AFF 注册 | [注册并试用](https://edu.yuque.men/auth/register?code=KGPt0kjX&utm_source=github&utm_medium=readme&utm_campaign=nanocloud_trial) | 白羊座 2 天试用，流量上限 5G |
+| AFF 注册 | [试用注册](https://edu.yuque.men/auth/register?code=KGPt0kjX&utm_source=github&utm_medium=readme&utm_campaign=nanocloud_trial) | 白羊座套餐 5GB流量  2 天试用 |
 | 普通注册 | [直接注册](https://edu.yuque.men/auth/register) | 不使用邀请码 |
 | Pages 指南 | [NanoCloud 机场介绍](https://nanocloud-release.github.io/NanoCloud/) | 套餐、客户端、教程和排障 |
 | 教程频道 | [NanoCloudWiki](https://t.me/NanoCloudWiki) | 客户端下载与使用教程 |
 | Telegram Bot | [@NanoAir_bot](https://t.me/NanoAir_bot) | 购买、订阅、签到与反馈 |
 
-AFF 入口已带邀请码 `KGPt0kjX`。通过它注册，推荐者可能收到平台返佣，你会拿到白羊座 2 天 / 5G 试用，套餐价格不变，（我太弱了，没有议价的能力）；不想使用邀请码就用普通注册入口。
 
-建议先把试用跑完再购买。试用期间购买会直接覆盖剩余试用时间，几个关键场景还没测完就付款，之后可能后悔。
-下载nanocloud的官方客户端，（基于mihomo内核，与clash verge一样的内核）有更多、更稳定的节点。若不想下载，也可以导入自己在用的代理软件。
-可以通过 https://github.com/0xWans/Sub2Clash 将官方客户端的节点（不过也需要下载客户端才行）转到clash verge中使用。这个方法比较折腾，更适合熟悉 Clash 配置、也会用 AI 辅助排错的用户。
+邀请码 `KGPt0kjX`。通过它注册，推荐者可能收到平台返佣，你会拿到白羊座 2 天 / 5G 试用，套餐价格不变，（我太弱了，没有议价的能力）；不想使用邀请码就用普通注册入口，但我不确定是否有试用。
+
+建议先把试用用完再购买，**试用期间购买配置会直接覆盖剩余试用时间和流量**。
+下载nanocloud的官方客户端，（客户端支持 Android、Windows 和 macOS，基于mihomo内核，与clash verge一样的内核）有更多、更稳定的节点。猎户座开源客户端能导入27个节点，官方端有55个节点。
+注意事项：①查看[使用文档](https://edu.yuque.men/app/knowledge)-对应平台的nano教程。Windows上需要在电脑上导入教程中下载的公开证书，才能正常登录使用官方客户端。
+若不想下载，也可以让AI使用<https://github.com/0xWans/Sub2Clash> 项目解密后再导入自己在用的代理软件。这个方案也需要下载客户端和证书。
 
 
-## NanoCloud 能提供什么
-
-- ¥1–20 月付，四档套餐覆盖 100–650G 月流量。
-- 控制台可见香港、东京、新加坡和美国西部等地区，协议包括 VLESS、TUIC 和 Hysteria。
-- 官方客户端支持 Android、Windows 和 macOS；已有客户端也可以一键导入 Hiddify Next、Clash Verge、FlClash、Karing 或 sing-box。
-- 官方客户端基于开源内核，能看到更多长期有效节点。
-- [@NanoAir_bot](https://t.me/NanoAir_bot) 可用于购买、获取订阅和每日签到（每月高达90G）和工单反馈；白羊座及以上套餐另有 Telegram 专用代理。
-
-## 套餐价格
+## 套餐配置和价格
 
 ![NanoCloud 控制台套餐页](assets/nanocloud-plans.png)
 
-*截图来自 NanoCloud 控制台，核对时间为 2026 年 7 月 14 日。*
+*截图时间为 2026 年 7 月 14 日。*
 
 | 套餐 | 月付 | 流量 | 带宽 | 设备 | 适合 |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -57,24 +64,25 @@ AFF 入口已带邀请码 `KGPt0kjX`。通过它注册，推荐者可能收到�
 
 | 使用方式 | 支持平台或客户端 | 特点 |
 | --- | --- | --- |
-| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点也更完整 |
-| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续用自己熟悉的客户端 |
+| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点也更完整，猎户座55个 |
+| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续用自己熟悉的客户端，猎户座27个 |
 | 本地转换 | [Sub2Clash](https://github.com/0xWans/Sub2Clash) | 给熟悉 Clash 配置的高级用户，综合上述优势 |
 
 ### “通用”与“流量”节点
 
 - **通用节点：** 走 IPv4，大多数家庭宽带和手机流量可以直接使用。
-- **流量节点：** 走 IPv6，光猫、路由器、运营商、设备和客户端缺一环没开IPv6都会导致timeout。
-
-第一次连接先选“通用”节点，没有配置过设备和软件的IPv6 “流量”节点一般都超时。
+- **流量节点：** 走 IPv6，一般手机流量能联通，电脑需要光猫、路由器、运营商、设备和客户端每个环节都开IPv6，否则显示timeout（超时，无法联通）。
 
 ## 快速开始与 2 天试用
 
-1. 用 AFF 试用或普通入口注册，然后进入控制台。
-2. 不想配置就下载官方客户端；已有客户端则点“一键导入”。
-3. 第一次试用或者购买可能需要等待片刻（5分钟或快或慢），才能联通服务器，之前节点一般测试全红。
+1. 用 AFF 试用注册，然后进入控制台。
+2. 没有代理客户端则点击APP下载，下载官方客户端；已有客户端则点“一键导入”。
+    查看[使用文档](https://edu.yuque.men/app/knowledge)-对应平台的nano教程。Windows上需要在电脑上导入教程中下载的公开证书，(如对安装公开的安全证书有顾虑请看[为什么要装证书，安装公开证书危险吗](https://nanocloud-release.github.io/NanoCloud/#troubleshooting))才能正常登录使用官方客户端。
+3. 第一次试用或者购买可能需要等待片刻（5分钟或快或慢），才能联通服务器，之前节点一般测试timeout。
 4. 第一次先连“通用”节点，随手打开几个常用网页。（或者直接在软件内测试延时）
 5. 最后留到晚高峰，测试 AI、流媒体、登录网站和故障恢复。
+6. to be contimue
+
 
 ### 把 5G 试用流量用在关键测试上
 
