@@ -812,15 +812,16 @@ section[id] {
 
 .certificate-diagram .mermaid {
   display: flex;
-  min-width: 720px;
-  justify-content: center;
+  width: 800px;
+  min-width: 800px;
+  justify-content: flex-start;
   margin: 0;
   background: transparent;
 }
 
 .certificate-diagram svg {
-  width: 100%;
-  max-width: 980px;
+  width: 800px;
+  max-width: none;
   height: auto;
 }
 
