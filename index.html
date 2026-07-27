@@ -450,19 +450,32 @@
             <figcaption>Nano Windows 客户端登录失败时显示的数据解析错误。</figcaption>
           </figure>
 
-          <div class="certificate-diagram" role="img" aria-label="HTTPS 证书验证流程图">
-            <pre class="mermaid">
-flowchart TD
-    A["Nano 发起 HTTPS 连接"] --&gt; B["服务器返回证书链"]
-    B --&gt; C["Windows 使用 ISRG Root X1 公钥&lt;br/&gt;验证证书链签名"]
-    C --&gt; D{"签名、域名和有效期&lt;br/&gt;是否全部通过？"}
-    D --&gt;|"是"| E["协商临时会话密钥"]
-    E --&gt; F["建立加密通道并提交登录请求"]
-    D --&gt;|"否"| G["TLS 连接或接口响应异常"]
-    G --&gt; H["登录失败或数据解析错误"]
-            </pre>
-            <noscript>启用 JavaScript 后可查看 HTTPS 证书验证流程图。</noscript>
-          </div>
+          <details class="certificate-diagram-details">
+            <summary>查看完整的 HTTPS 证书验证流程</summary>
+            <div class="certificate-diagram" role="img" aria-label="HTTPS 证书验证流程图">
+              <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    participant N as Nano 客户端
+    participant S as Nano 登录服务器
+    participant R as Windows 根证书库
+    N-&gt;&gt;S: 发起 HTTPS 连接
+    S--&gt;&gt;N: 返回服务器证书和中间证书
+    N-&gt;&gt;R: 查找受信任的根证书
+    R--&gt;&gt;N: 提供 ISRG Root X1 公钥
+    N-&gt;&gt;N: 验证签名、域名和有效期
+    alt 验证成功
+        N-&gt;&gt;S: 协商临时会话密钥
+        S--&gt;&gt;N: 建立加密通道
+        N-&gt;&gt;S: 提交登录请求
+    else 无法建立受信任证书链
+        N--&gt;&gt;N: TLS 连接或接口响应异常
+        N--&gt;&gt;N: 登录失败或数据解析错误
+    end
+              </pre>
+              <noscript>启用 JavaScript 后可查看 HTTPS 证书验证流程图。</noscript>
+            </div>
+          </details>
 
           <div class="certificate-answer">
             <h3>安装这个证书有危害吗，会被 MITM 吗？</h3>
@@ -473,10 +486,40 @@ flowchart TD
           <details class="certificate-details">
             <summary>为什么会是这样的</summary>
             <div>
-              <p>截图中的错误是客户端数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，实际却收到了字符串或其他异常内容。TLS 信任链不完整、网络拦截、服务器异常和客户端兼容性问题都可能产生这种现象，所以这条错误本身不能证明证书缺失是唯一原因。</p>
-              <p><code>ISRG Root X1</code> 是 Internet Security Research Group 运营、供 Let’s Encrypt 证书体系使用的公开信任锚。客户端使用根证书中的公钥验证证书链签名。根证书不提供 HTTPS 会话的解密密钥；会话密钥由客户端与服务器在每次连接中临时协商，不能从根证书公钥反推出。</p>
-              <p>签发可被系统接受的假网站证书需要根 CA 或受信任中间 CA 的私钥。教程证书中没有该私钥，Nano 因而不能用它为其他网站动态签发替代证书。抓包软件则会自行生成 CA 和私钥，把自己的 CA 加入系统信任库，再分别与客户端和真实服务器建立两条加密连接。</p>
-              <p>核验指纹：<code>96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6</code>。该结论只适用于指纹一致的证书文件，不代表其他来源不明的根证书也可以安全安装。</p>
+              <h3>截图中的错误意味着什么</h3>
+              <p>截图显示：</p>
+              <pre><code>登录失败：type 'String' is not a subtype of type 'int' of 'index'</code></pre>
+              <p>这是客户端的数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，但实际收到了字符串或其他异常内容。</p>
+              <p>TLS 信任链不完整、网络拦截、服务器返回异常以及客户端自身的兼容性问题，都可能造成这种现象。因此，该错误不能单独证明证书缺失就是唯一原因；只能说明安装证书可能修复其中一种 TLS 信任链问题。</p>
+
+              <h3>这个证书是什么</h3>
+              <p><code>https_windows.crt</code> 经核验为 Let’s Encrypt 的公开根证书：</p>
+              <ul>
+                <li>名称：<code>ISRG Root X1</code></li>
+                <li>所有者：Internet Security Research Group</li>
+                <li>类型：受信任根证书颁发机构</li>
+                <li>用途：验证由该 CA 体系签发的服务器证书</li>
+                <li>SHA-256 证书指纹：<code>96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6</code></li>
+                <li>私钥：文件中不包含</li>
+              </ul>
+              <p>根证书的作用类似于信任锚。客户端使用根证书中的公钥验证证书链上的数字签名，确认服务器证书最终来自受信任的证书颁发机构。</p>
+              <p>根证书不会提供 HTTPS 会话的解密密钥。HTTPS 会话密钥由客户端和服务器在连接过程中临时协商，不能从根证书公钥反推出。</p>
+
+              <h3>为什么它不能被 Nano 用来进行 MITM</h3>
+              <p>签发假网站证书需要使用根 CA 或受信任中间 CA 的私钥进行数字签名。<code>https_windows.crt</code> 只包含公开信息和公钥，不包含 <code>ISRG Root X1</code> 的私钥。</p>
+              <p>因此，安装该文件只会增加系统对 Let’s Encrypt 正常证书链的信任，不会把证书签发能力交给 Nano。Nano 不能利用这个文件生成一个能够通过系统验证的假 <code>google.com</code>、银行网站或其他网站证书。</p>
+
+              <h3>抓包根证书为什么不同</h3>
+              <p>HTTPS 抓包软件通常会：</p>
+              <ol>
+                <li>在本机生成一套自建 CA 证书和私钥。</li>
+                <li>将自建 CA 证书加入系统受信任根证书库。</li>
+                <li>接管客户端与目标服务器之间的连接。</li>
+                <li>使用自建 CA 私钥动态签发目标网站的替代证书。</li>
+                <li>分别与客户端和真实服务器建立两条加密连接。</li>
+              </ol>
+              <p>抓包程序掌握自建 CA 私钥，所以具备签发替代证书的能力。这正是它与公开 <code>ISRG Root X1</code> 证书的根本区别。</p>
+              <p>上述结论只适用于指纹一致的 <code>ISRG Root X1</code> 文件，不代表其他来源不明的根证书也可以安全安装。</p>
             </div>
           </details>
         </article>
@@ -581,7 +624,7 @@ flowchart TD
       startOnLoad: true,
       theme: "neutral",
       securityLevel: "strict",
-      flowchart: { useMaxWidth: true, htmlLabels: true }
+      sequence: { useMaxWidth: true, wrap: true }
     });
   </script>
   <script>

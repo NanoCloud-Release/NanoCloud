@@ -791,16 +791,28 @@ section[id] {
   font-size: 13px;
 }
 
+.certificate-diagram-details {
+  max-width: 980px;
+  border-block: 1px solid var(--line);
+}
+
+.certificate-diagram-details summary {
+  padding: 18px 0;
+  font-weight: 760;
+  cursor: pointer;
+}
+
 .certificate-diagram {
   width: 100%;
   min-height: 420px;
   padding: 24px 12px;
-  border-block: 1px solid var(--line);
+  border-top: 1px solid var(--line);
   overflow-x: auto;
 }
 
 .certificate-diagram .mermaid {
   display: flex;
+  min-width: 720px;
   justify-content: center;
   margin: 0;
   background: transparent;
@@ -840,6 +852,29 @@ section[id] {
 
 .certificate-details > div {
   padding: 0 0 24px;
+}
+
+.certificate-details h3 {
+  margin-top: 28px;
+  font-size: 19px;
+}
+
+.certificate-details pre {
+  margin: 12px 0 0;
+  padding: 12px;
+  background: #f4f6f4;
+  overflow-x: auto;
+}
+
+.certificate-details ul,
+.certificate-details ol {
+  margin: 12px 0 0;
+  padding-left: 24px;
+  color: var(--muted);
+}
+
+.certificate-details li + li {
+  margin-top: 6px;
 }
 
 .evidence-band {

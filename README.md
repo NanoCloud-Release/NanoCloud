@@ -108,18 +108,34 @@ Windows 版 Nano 登录时如果出现下面的错误，客户端可能没有成
 
 ![Nano Windows 客户端登录时出现 String 不能作为 int 索引的错误](assets/nano-login-string-index-error.png)
 
-安装教程提供的 `https_windows.crt` 后，Windows 可以使用其中的 `ISRG Root X1` 公钥验证 Nano 登录服务器的证书链。证书在 HTTPS 连接中的作用如下：
+安装教程提供的 `https_windows.crt` 后，Windows 可以使用其中的 `ISRG Root X1` 公钥验证 Nano 登录服务器的证书链。
+
+<details>
+<summary><strong>查看完整的 HTTPS 证书验证流程</strong></summary>
 
 ```mermaid
-flowchart TD
-    A["Nano 发起 HTTPS 连接"] --> B["服务器返回证书链"]
-    B --> C["Windows 使用 ISRG Root X1 公钥<br/>验证证书链签名"]
-    C --> D{"签名、域名和有效期<br/>是否全部通过？"}
-    D -->|"是"| E["协商临时会话密钥"]
-    E --> F["建立加密通道并提交登录请求"]
-    D -->|"否"| G["TLS 连接或接口响应异常"]
-    G --> H["登录失败或数据解析错误"]
+sequenceDiagram
+    autonumber
+    participant N as Nano 客户端
+    participant S as Nano 登录服务器
+    participant R as Windows 根证书库
+
+    N->>S: 发起 HTTPS 连接
+    S-->>N: 返回服务器证书和中间证书
+    N->>R: 查找受信任的根证书
+    R-->>N: 提供 ISRG Root X1 公钥
+    N->>N: 验证签名、域名和有效期
+    alt 验证成功
+        N->>S: 协商临时会话密钥
+        S-->>N: 建立加密通道
+        N->>S: 提交登录请求
+    else 无法建立受信任证书链
+        N-->>N: TLS 连接或接口响应异常
+        N-->>N: 登录失败或数据解析错误
+    end
 ```
+
+</details>
 
 ### 安装这个证书有危害吗，会被 MITM 吗？
 
@@ -130,13 +146,52 @@ flowchart TD
 <details>
 <summary><strong>为什么会是这样的</strong></summary>
 
-截图中的 `type 'String' is not a subtype of type 'int' of 'index'` 是客户端数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，实际却收到了字符串或其他异常内容。TLS 信任链不完整、网络拦截、服务器异常和客户端兼容性问题都可能产生这种现象，所以这条错误本身不能证明证书缺失是唯一原因。
+### 截图中的错误意味着什么
 
-`ISRG Root X1` 是 Internet Security Research Group 运营、供 Let’s Encrypt 证书体系使用的公开信任锚。它的作用是让客户端使用根证书中的公钥验证证书链签名，确认服务器证书最终来自受信任的 CA。根证书不提供 HTTPS 会话的解密密钥；会话密钥由客户端与服务器在每次连接中临时协商，不能从根证书公钥反推出。
+截图显示：
 
-签发可被系统接受的假网站证书需要根 CA 或受信任中间 CA 的私钥。教程证书中没有 `ISRG Root X1` 私钥，Nano 因而不能用它为 Google、银行或其他网站动态签发替代证书。抓包软件则会自行生成 CA 和私钥，把自己的 CA 加入系统信任库，再分别与客户端和真实服务器建立两条加密连接。
+```text
+登录失败：type 'String' is not a subtype of type 'int' of 'index'
+```
 
-核验指纹：`ISRG Root X1` 的 SHA-256 证书指纹为 `96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6`。上述结论只适用于指纹一致的证书文件，不代表其他来源不明的根证书也可以安全安装。
+这是客户端的数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，但实际收到了字符串或其他异常内容。
+
+TLS 信任链不完整、网络拦截、服务器返回异常以及客户端自身的兼容性问题，都可能造成这种现象。因此，该错误不能单独证明证书缺失就是唯一原因；只能说明安装证书可能修复其中一种 TLS 信任链问题。
+
+### 这个证书是什么
+
+`https_windows.crt` 经核验为 Let’s Encrypt 的公开根证书：
+
+- 名称：`ISRG Root X1`
+- 所有者：Internet Security Research Group
+- 类型：受信任根证书颁发机构
+- 用途：验证由该 CA 体系签发的服务器证书
+- SHA-256 证书指纹：`96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6`
+- 私钥：文件中不包含
+
+根证书的作用类似于信任锚。客户端使用根证书中的公钥验证证书链上的数字签名，确认服务器证书最终来自受信任的证书颁发机构。
+
+根证书不会提供 HTTPS 会话的解密密钥。HTTPS 会话密钥由客户端和服务器在连接过程中临时协商，不能从根证书公钥反推出。
+
+### 为什么它不能被 Nano 用来进行 MITM
+
+签发假网站证书需要使用根 CA 或受信任中间 CA 的私钥进行数字签名。`https_windows.crt` 只包含公开信息和公钥，不包含 `ISRG Root X1` 的私钥。
+
+因此，安装该文件只会增加系统对 Let’s Encrypt 正常证书链的信任，不会把证书签发能力交给 Nano。Nano 不能利用这个文件生成一个能够通过系统验证的假 `google.com`、银行网站或其他网站证书。
+
+### 抓包根证书为什么不同
+
+HTTPS 抓包软件通常会：
+
+1. 在本机生成一套自建 CA 证书和私钥。
+2. 将自建 CA 证书加入系统受信任根证书库。
+3. 接管客户端与目标服务器之间的连接。
+4. 使用自建 CA 私钥动态签发目标网站的替代证书。
+5. 分别与客户端和真实服务器建立两条加密连接。
+
+抓包程序掌握自建 CA 私钥，所以具备签发替代证书的能力。这正是它与公开 `ISRG Root X1` 证书的根本区别。
+
+上述结论只适用于指纹一致的 `ISRG Root X1` 文件，不代表其他来源不明的根证书也可以安全安装。
 
 </details>
 
