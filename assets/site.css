@@ -759,6 +759,17 @@ section[id] {
   border-top: 1px solid var(--line);
 }
 
+.certificate-main-summary {
+  padding: 0 0 22px;
+  font-size: 20px;
+  font-weight: 780;
+  cursor: pointer;
+}
+
+.certificate-guide-content {
+  padding-top: 18px;
+}
+
 .compact-heading {
   margin-bottom: 24px;
 }
@@ -843,6 +854,32 @@ section[id] {
 .certificate-details {
   max-width: 880px;
   border-block: 1px solid var(--line);
+}
+
+.certificate-explanation {
+  padding-bottom: 24px;
+}
+
+.chain-skill-guide {
+  max-width: 920px;
+  margin-top: 28px;
+  padding: 26px 0 4px;
+  border-top: 1px solid var(--line);
+}
+
+.chain-skill-guide h3 {
+  font-size: 22px;
+}
+
+.chain-skill-guide p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.chain-skill-guide code {
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  background: #f4f6f4;
 }
 
 .certificate-details summary {
@@ -1187,6 +1224,18 @@ button:focus-visible {
 
   .guide-table td:nth-child(3)::before {
     content: "别只看";
+  }
+
+  .troubleshooting-table td:nth-child(2)::before {
+    content: "处理";
+  }
+
+  .region-table td:nth-child(2)::before {
+    content: "现象";
+  }
+
+  .region-table td:nth-child(3)::before {
+    content: "证据";
   }
 
   .cost-table td:nth-child(2)::before {

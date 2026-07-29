@@ -155,7 +155,7 @@
     <section id="top" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-inner">
-        <p class="eyebrow">NanoCloud-Release 维护 · 2026 年 7 月 19 日更新</p>
+        <p class="eyebrow">NanoCloud-Release 维护 · 2026 年 7 月 29 日更新</p>
         <h1>NanoCloud 机场</h1>
         <p class="hero-lead">NanoCloud 是月付 ¥1–20 的共享代理机场，不用自己维护服务器。先拿常用设备跑一遍晚高峰、AI 和流媒体，合适再付费。</p>
         <ul class="hero-facts" aria-label="NanoCloud 摘要">
@@ -315,18 +315,38 @@
     <section id="network" class="band network-band">
       <div class="inner compact-layout">
         <div class="section-heading">
-          <p class="eyebrow">2026 年网络变化</p>
-          <h2>4 月以后，运营年限也得配合现状看</h2>
-          <p>这轮变化同时碰到了中转上游、价格和客户端分发。老牌服务也可能退出中国大陆，买之前要查最近公告和节点状态。</p>
+          <p class="eyebrow">2026 年网络观察</p>
+          <h2>国内 IDC 中转封锁加重，用户体验下滑</h2>
+          <p>普通用户最容易看到的现象是节点突然变红、频繁超时、更新订阅后仍无法连接，或者刚恢复不久又要更换线路。以下是公开账号、运营者转述和用户反馈，不是官方封锁公告，也不能代表全国所有网络。</p>
         </div>
         <ol class="timeline">
-          <li><time datetime="2026-04-02">4 月 2 日</time><p>LinuxDo 转发的运维公告提到，部分中转上游和机房被整体清退。</p></li>
-          <li><time datetime="2026-04-07">4 月 7 日</time><p>奶昔公告显示全线涨价 5%，理由是能源和带宽成本上涨。</p></li>
-          <li><time datetime="2026-04-25">4 月 25 日</time><p>社区开始集中讨论官方客户端拥有更多节点、第三方订阅节点较少的情况。</p></li>
-          <li><time datetime="2026-04-28">4 月 28 日</time><p>快连宣布停止中国大陆业务并开放退款。</p></li>
-          <li><time datetime="2026-05-08">5 月 8 日</time><p>快连恢复全球标准运营和账户计时，中国大陆服务仍然停止。</p></li>
-          <li><time datetime="2026-05-15">5 月 15 日</time><p>快连 CEO 公开信再次确认无法继续面向中国大陆提供 VPN 服务。</p></li>
+          <li><time datetime="2025-11-25">2025-11-25</time><p>部分机场节点域名被大面积污染，更换新域名后仍可能很快再次被污染。</p></li>
+          <li><time datetime="2025-12-02">2025-12-02</time><p>当月多数工作日出现中转线路通报，部分服务商开始缺少可替换的新 IP。</p></li>
+          <li><time datetime="2026-01-19">1 月 19 日</time><p>机场开始尝试官方客户端、Reality、AnyTLS、直连或境外中转；旧客户端可能不支持新协议。</p></li>
+          <li><time datetime="2026-02-09">2 月 9 日</time><p>有 IDC 被要求关停具有流量转发特征的国内云服务器，依赖国内入口的节点可能整批消失。</p></li>
+          <li><time datetime="2026-03-04">3 月 4 日</time><p>部分热门境外 VPS IP 段以及 Reality、AnyTLS 直连出现大范围不可达反馈。</p></li>
+          <li><time datetime="2026-03-20">3 月 20 日</time><p>业内消息称广东电信开始整改违规跨境联网专线，但没有公开文件证明所有广东线路都受影响。</p></li>
+          <li><time datetime="2026-04-02">4 月 2 日</time><p>国内中转通报、拔线和资源清退增加，部分机场频繁断线或带宽不足。</p></li>
+          <li><time datetime="2026-04-23">4 月 23 日</time><p>部分移动数据出海线路出现频繁超时，同一节点在家庭宽带和手机流量下可能表现不同。</p></li>
+          <li><time datetime="2026-05-22">5 月 22 日</time><p>部分 AnyTLS 直连和海外中转 IPv4 地址被封；当时 IPv6 仍可用，但不能视为长期保证。</p></li>
+          <li><time datetime="2026-07-06">7 月 6 日</time><p>AnyTLS 使用增加，同时也逐渐出现被通报的情况，换协议并不是永久解决方案。</p></li>
         </ol>
+        <div class="section-heading compact-heading">
+          <h3>五地省级网络观察</h3>
+          <p>省级现象的证据强度不同。部署记录只能证明相关系统或项目存在，不能直接外推为全省、所有运营商都采用同一种策略。</p>
+        </div>
+        <div class="table-wrap">
+          <table class="guide-table region-table">
+            <thead><tr><th>地区</th><th>公开帖子中的现象</th><th>目前能确认到什么程度</th></tr></thead>
+            <tbody>
+              <tr><td>湖北</td><td>受污染域名可能解析到 <code>127.0.0.1</code></td><td>用户侧现象记录，缺少覆盖不同运营商和地区的系统测量</td></tr>
+              <tr><td>福建</td><td>屏蔽境外 IP</td><td>研究确认泉州移动存在相关部署，不能证明福建全省和所有运营商都如此</td></tr>
+              <tr><td>江苏</td><td>访问时跳转反诈页面</td><td>泄漏材料记录南京测试环境和江苏反诈项目，具体网络和机制需分别判断</td></tr>
+              <tr><td>新疆</td><td>屏蔽国内中转</td><td>材料提供了项目拓扑线索，没有用户侧失败率或逐协议测量</td></tr>
+              <tr><td>河南</td><td>额外检查 HTTP Host 和 TLS SNI</td><td>郑州 AS4837 有可复核直接测量，不能外推到全省所有运营商</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -344,7 +364,7 @@
             </thead>
             <tbody>
               <tr><td>NanoCloud</td><td>¥1–20</td><td>100–650G、多地区、2–10 台设备</td><td>共享出口，IP 会变化</td></tr>
-              <tr><td>NanoCloud + $2.5 商业宽带 IP</td><td>约 ¥17.94–36.94</td><td>机场传输，商业宽带 IP 落地</td><td>延迟增加，需要配置链式代理</td></tr>
+              <tr><td>NanoCloud + $2.5 商业宽带 IP</td><td>约 ¥17.94–36.94</td><td>机场传输，商业宽带 IP 落地</td><td>延迟增加，使用专用 skill 配置链式代理</td></tr>
               <tr><td>单台主流 VPS</td><td>约 ¥33.89–40.67</td><td>单地区、约 1TB、出口较固定</td><td>自己维护，线路或 IP 出问题要处理</td></tr>
               <tr><td>两台 $5 VPS 中转</td><td>约 ¥67.78 起</td><td>入口和落地分离</td><td>两个故障点，维护量更高</td></tr>
               <tr><td>IPLC / IEPL</td><td>通常询价</td><td>跨境段减少普通公网影响</td><td>价格高，体验仍受入口和落地影响</td></tr>
@@ -352,6 +372,11 @@
           </table>
         </div>
         <p class="guide-note">需要 AI 独立出口，又不想自己处理跨境线路时，可以让机场负责传输，再接 VPS 或商业宽带 IP 落地。白羊座加 $2.5/月落地，按本页汇率约 ¥26.94/月。</p>
+        <div class="chain-skill-guide">
+          <h3>使用专用 skill 配置链式代理</h3>
+          <p>请使用 <a href="https://github.com/NanoCloud-Release/mihomo-landing-isp-chains">NanoCloud-Release/mihomo-landing-isp-chains</a>，让 NanoCloud 节点作为第一跳、ISP 代理作为落地出口。该 skill 会隐藏凭据、先给出修改预览，并优先修改 Clash Verge 的持久化配置片段。</p>
+          <p>它使用 <code>dialer-proxy</code>，不会继续采用已经弃用的 <code>relay</code>；还会为不同落地出口设置独立健康检查和 provider 路径，并检查循环链路、旁路与严格出口。遇到版本相关行为时，它会重新核对当前 Mihomo 官方文档并纠正旧写法。</p>
+        </div>
       </div>
     </section>
 
@@ -402,47 +427,34 @@
     <section id="troubleshooting" class="band troubleshooting-band">
       <div class="inner">
         <div class="section-heading">
-          <p class="eyebrow">常见问题</p>
-          <h2>先做两分钟交叉测试</h2>
-          <p>先看控制台节点状态，再切“通用”节点、换地区、更新订阅，并在家庭 Wi-Fi 和手机流量之间交叉测试。哪一步恢复了，问题范围就缩小了。</p>
+          <p class="eyebrow">官方教程摘要</p>
+          <h2>Windows 客户端常见问题</h2>
+          <p>Windows 客户端仅支持 Windows 10 及以上系统。安装或排查前，先彻底退出其他代理、VPN 和可能拦截网络驱动的安全软件。临时关闭防护后，处理完成应重新开启。</p>
         </div>
-        <div class="troubleshoot-grid">
-          <article>
-            <i data-lucide="wifi-off"></i>
-            <h3>手机流量能用，家庭 Wi-Fi 不能用</h3>
-            <p>先切“通用”节点。如果恢复，依次检查光猫、路由器、运营商、设备和客户端的 IPv6。旧路由器或部分地区不支持完整 IPv6，继续用“通用”节点即可。</p>
-          </article>
-          <article>
-            <i data-lucide="moon"></i>
-            <h3>白天正常，晚上断流</h3>
-            <p>在 20:00–23:00 记录城市、运营商、网络类型、节点、超时和重连。换地区后再用手机流量测试一次，能分清节点故障和本地运营商 QoS。</p>
-          </article>
-          <article>
-            <i data-lucide="radio-tower"></i>
-            <h3>节点全部变红</h3>
-            <p>查看控制台状态，检查账户到期时间和剩余流量，然后更新订阅。仍然全红时，从“流量”切到“通用”，再试香港、日本、新加坡或美国方向。</p>
-          </article>
-          <article>
-            <i data-lucide="app-window"></i>
-            <h3>客户端初始化失败</h3>
-            <p>彻底退出并卸载旧版，重启设备，再从控制台入口安装。Windows 重装后仍失败，先清除系统代理，最后再考虑“网络重置”。</p>
-          </article>
-          <article>
-            <i data-lucide="power"></i>
-            <h3>关机后开机无法联网</h3>
-            <p>关机前先在客户端断开连接，再从系统托盘彻底退出。已经发生时，关闭残留系统代理并重启网络适配器。</p>
-          </article>
-          <article>
-            <i data-lucide="message-circle-question"></i>
-            <h3>还是解决不了</h3>
-            <p>查看 <a href="https://t.me/NanoCloudWiki">NanoCloudWiki</a>，使用 <a href="https://t.me/NanoAir_bot">@NanoAir_bot</a> 或控制台工单反馈。附上系统、客户端版本、城市、运营商、节点和完整错误文本，记得遮住订阅链接与 token。</p>
-          </article>
+        <div class="table-wrap">
+          <table class="guide-table troubleshooting-table">
+            <thead><tr><th>现象</th><th>按教程怎么处理</th></tr></thead>
+            <tbody>
+              <tr><td>“Windows 已保护你的电脑”</td><td>确认安装包来自官方教程，点击“更多信息”再选择“仍要运行”</td></tr>
+              <tr><td>初始化失败：无法连接服务器</td><td>安装教程中的 <code>https_windows.crt</code> 并重启 Nano；仍失败时改用手机热点或其他网络</td></tr>
+              <tr><td><code>String</code> 不能作为 <code>int</code> 索引</td><td>核对并安装证书；它可能修复 TLS 信任链问题，但报错也可能来自服务器响应或客户端兼容性</td></tr>
+              <tr><td>缺少 <code>vcruntime140.dll</code></td><td>安装教程提供的 Microsoft Visual C++ 运行库，再启动客户端</td></tr>
+              <tr><td>权限不足或缺少 VPN 权限</td><td>卸载冲突工具并重启，安装时选择“为所有用户安装”，之后以管理员身份运行</td></tr>
+              <tr><td>只有浏览器能联网</td><td>把连接模式切换为“虚拟网卡”，断开后重连；此模式需要管理员权限</td></tr>
+              <tr><td>部分网站打不开</td><td>把路由模式从“自动”切换为“全局”；它会增加流量消耗，也可能拖慢国内网站</td></tr>
+              <tr><td>国内网站变慢</td><td>把路由模式恢复为“自动”</td></tr>
+              <tr><td>手机热点能用，家庭 Wi-Fi 不能用</td><td>先用“通用”节点，再检查光猫和路由器的 IPv6 或 DNS 设置</td></tr>
+            </tbody>
+          </table>
         </div>
-        <article class="certificate-guide" aria-labelledby="certificate-title">
+        <p class="guide-note">完整教程见 <a href="https://edu.yuque.men/app/knowledge">NanoCloud 官方使用文档</a>。仍无法解决时，反馈系统、客户端版本、城市、运营商、节点和完整错误文本，并遮住订阅链接与 token。</p>
+        <details class="certificate-guide" aria-labelledby="certificate-title">
+          <summary class="certificate-main-summary">无法登录官方客户端的解决方法</summary>
+          <div class="certificate-guide-content">
           <div class="section-heading compact-heading">
             <p class="eyebrow">Windows 登录排障</p>
             <h2 id="certificate-title">为什么要安装证书</h2>
-            <p>如果 Nano 登录时显示 <code>type 'String' is not a subtype of type 'int' of 'index'</code>，客户端可能没有成功建立完整的 HTTPS 信任链。安装教程提供的 <code>https_windows.crt</code> 后，Windows 可以使用其中的 <code>ISRG Root X1</code> 公钥验证登录服务器的证书链。</p>
+            <p>如果 Nano 登录时显示 <code>type 'String' is not a subtype of type 'int' of 'index'</code>，客户端可能没有成功建立完整的 HTTPS 信任链。按照官方 Windows 教程安装 <code>https_windows.crt</code> 后，Windows 可以使用其中的 <code>ISRG Root X1</code> 公钥验证登录服务器身份并建立受信任的 HTTPS 连接。</p>
           </div>
 
           <figure class="certificate-screenshot">
@@ -478,22 +490,23 @@ sequenceDiagram
           </details>
 
           <div class="certificate-answer">
-            <h3>安装这个证书有危害吗，会被 MITM 吗？</h3>
-            <p><strong>安全结论：</strong>经核验，教程中的 <code>https_windows.crt</code> 是 Let’s Encrypt 的公开根证书 <code>ISRG Root X1</code>。文件只包含证书和公钥，不包含根 CA 私钥。Nano 无法仅凭这个文件签发任意网站的假证书，也无法用它解密 HTTPS 流量。</p>
-            <p>真正的 MITM 抓包需要抓包程序掌握自建 CA 的私钥、让设备信任该自建 CA，并处于流量转发路径上。Burp Suite、Charles、Fiddler 和 mitmproxy 安装的通常是由抓包程序自己控制私钥的 CA，这与公开的 <code>ISRG Root X1</code> 不同。</p>
+            <h3>为什么安装 ISRG Root X1 不会让 NanoCloud 具备 HTTPS 解密或 MITM 能力</h3>
+            <p><code>ISRG Root X1</code> 是 Internet Security Research Group 发布的公开根证书。NanoCloud 不持有对应私钥，因此无法伪造或签发任何能通过 Windows 验证的 HTTPS 证书。</p>
+            <p>证书文件只包含公开信息和公钥。真正用于签发网站证书的是 ISRG 严格保管的根 CA 私钥，它不会随证书文件分发，也不会因为用户安装证书而交给 NanoCloud。</p>
           </div>
 
-          <details class="certificate-details">
-            <summary>为什么会是这样的</summary>
+          <div class="certificate-details certificate-explanation">
             <div>
-              <h3>截图中的错误意味着什么</h3>
-              <p>截图显示：</p>
-              <pre><code>登录失败：type 'String' is not a subtype of type 'int' of 'index'</code></pre>
-              <p>这是客户端的数据类型解析错误。客户端原本可能预期接口返回数组、数字索引或特定 JSON 结构，但实际收到了字符串或其他异常内容。</p>
-              <p>TLS 信任链不完整、网络拦截、服务器返回异常以及客户端自身的兼容性问题，都可能造成这种现象。因此，该错误不能单独证明证书缺失就是唯一原因；只能说明安装证书可能修复其中一种 TLS 信任链问题。</p>
+              <h3>HTTPS 连接时发生了什么</h3>
+              <ol>
+                <li>网站发回自己的 HTTPS 证书。</li>
+                <li>Windows 使用 <code>ISRG Root X1</code> 公钥检查证书链、域名和有效期。</li>
+                <li>验证通过后，浏览器与网站协商临时会话密钥并建立 TLS 加密连接。</li>
+                <li>后续数据全部加密传输。</li>
+              </ol>
+              <p>根证书的作用是验证身份，不会提供 HTTPS 会话的解密密钥。没有额外解密机制时，NanoCloud 只能转发加密流量，无法读取 HTTPS 内容。</p>
 
-              <h3>这个证书是什么</h3>
-              <p><code>https_windows.crt</code> 经核验为 Let’s Encrypt 的公开根证书：</p>
+              <h3>经核验的证书信息</h3>
               <ul>
                 <li>名称：<code>ISRG Root X1</code></li>
                 <li>所有者：Internet Security Research Group</li>
@@ -502,27 +515,14 @@ sequenceDiagram
                 <li>SHA-256 证书指纹：<code>96BCEC06264976F37460779ACF28C5A7CFE8A3C0AAE11A8FFCEE05C0BDDF08C6</code></li>
                 <li>私钥：文件中不包含</li>
               </ul>
-              <p>根证书的作用类似于信任锚。客户端使用根证书中的公钥验证证书链上的数字签名，确认服务器证书最终来自受信任的证书颁发机构。</p>
-              <p>根证书不会提供 HTTPS 会话的解密密钥。HTTPS 会话密钥由客户端和服务器在连接过程中临时协商，不能从根证书公钥反推出。</p>
 
-              <h3>为什么它不能被 Nano 用来进行 MITM</h3>
-              <p>签发假网站证书需要使用根 CA 或受信任中间 CA 的私钥进行数字签名。<code>https_windows.crt</code> 只包含公开信息和公钥，不包含 <code>ISRG Root X1</code> 的私钥。</p>
-              <p>因此，安装该文件只会增加系统对 Let’s Encrypt 正常证书链的信任，不会把证书签发能力交给 Nano。Nano 不能利用这个文件生成一个能够通过系统验证的假 <code>google.com</code>、银行网站或其他网站证书。</p>
-
-              <h3>抓包根证书为什么不同</h3>
-              <p>HTTPS 抓包软件通常会：</p>
-              <ol>
-                <li>在本机生成一套自建 CA 证书和私钥。</li>
-                <li>将自建 CA 证书加入系统受信任根证书库。</li>
-                <li>接管客户端与目标服务器之间的连接。</li>
-                <li>使用自建 CA 私钥动态签发目标网站的替代证书。</li>
-                <li>分别与客户端和真实服务器建立两条加密连接。</li>
-              </ol>
-              <p>抓包程序掌握自建 CA 私钥，所以具备签发替代证书的能力。这正是它与公开 <code>ISRG Root X1</code> 证书的根本区别。</p>
+              <h3>与抓包工具根证书的区别</h3>
+              <p>Burp Suite、Charles、Fiddler 和 mitmproxy 会自建 CA 证书与私钥。用户信任该 CA 后，工具可以用自己掌握的私钥动态签发替代证书，从而进行 MITM。NanoCloud 没有 <code>ISRG Root X1</code> 私钥，仅安装这张公开根证书，不能伪造网站证书或解密 HTTPS。</p>
               <p>上述结论只适用于指纹一致的 <code>ISRG Root X1</code> 文件，不代表其他来源不明的根证书也可以安全安装。</p>
             </div>
-          </details>
-        </article>
+          </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -531,7 +531,7 @@ sequenceDiagram
         <div>
           <p class="eyebrow">来源与更新</p>
           <h2>数字和案例从哪里来</h2>
-          <p>本页由 <a href="https://github.com/NanoCloud-Release">NanoCloud-Release</a> 独立维护，2026 年 7 月 19 日更新。套餐、节点和客户端信息核对于 7 月 17 日。</p>
+          <p>本页由 <a href="https://github.com/NanoCloud-Release">NanoCloud-Release</a> 独立维护，2026 年 7 月 29 日更新。套餐、节点和客户端信息核对于 7 月 17 日。</p>
           <p>产品信息来自控制台与公开结算页，体验记录覆盖中国电信晚高峰。网络事件优先采用服务商公告，论坛讨论用于补充用户案例与反例。VPS 成本使用公开价格，汇率取自 Frankfurter。</p>
           <p>论坛内容不能替代产品公告，也不能证明 NanoCloud 当前质量。AI 与 IP 相关案例的结论彼此冲突，所以页面只把出口 IP 作为变量之一。</p>
         </div>
@@ -543,13 +543,16 @@ sequenceDiagram
           <section class="source-group">
             <h3>网络事件与官方公告</h3>
             <ul>
-              <li><a href="https://linux.do/t/topic/1881437">4 月 2 日中转上游与机房清退讨论</a></li>
-              <li><a href="https://linux.do/t/topic/1875969">4 月 7 日奶昔涨价公告截图</a></li>
-              <li><a href="https://linux.do/t/topic/2052417/77">4 月 25 日官方客户端节点讨论</a></li>
-              <li><a href="https://linux.do/t/topic/2081802">4 月中转事件后续讨论</a></li>
-              <li><a href="https://www.keeplets.net/blog/c130bd">快连 4 月 28 日停止中国大陆业务</a></li>
-              <li><a href="https://www.keeplets.net/blog/f20bkd">快连 5 月 8 日全球运营公告</a></li>
-              <li><a href="https://www.keeplets.net/blog/h20kxb">快连 5 月 15 日 CEO 公开信</a></li>
+              <li><a href="https://x.com/jichangtj/status/1993290708304994537">2025 年 11 月节点域名污染记录</a></li>
+              <li><a href="https://x.com/jichangtj/status/1995807851089199270">2025 年 12 月中转线路通报记录</a></li>
+              <li><a href="https://x.com/jichangtj/status/2013044184672780430">2026 年 1 月协议和线路调整</a></li>
+              <li><a href="https://x.com/jichangtj/status/2020727408777888141">2 月国内云服务器关停转述</a></li>
+              <li><a href="https://x.com/jichangtj/status/2029162760446329326">3 月境外 VPS 与直连不可达反馈</a></li>
+              <li><a href="https://x.com/jichangtj/status/2039647644243669118">4 月国内中转清退观察</a></li>
+              <li><a href="https://x.com/jichangtj/status/2057736251818840249">5 月 AnyTLS 与 IPv4 封锁反馈</a></li>
+              <li><a href="https://x.com/jichangtj/status/2074047709909221844">7 月 AnyTLS 通报观察</a></li>
+              <li><a href="https://gfw.report/publications/sp25/zh/">河南额外 HTTP Host 和 TLS SNI 审查研究</a></li>
+              <li><a href="https://gfw.report/blog/geedge_and_mesa_leak/zh">Geedge 与 MESA 泄漏材料分析</a></li>
             </ul>
           </section>
           <section class="source-group">
@@ -579,7 +582,7 @@ sequenceDiagram
               <li><a href="https://idcflare.com/t/topic/18792">IDC Flare VPS IP 质量检测</a></li>
               <li><a href="https://developers.cloudflare.com/radar/concepts/bot-classes/">Cloudflare Radar Bot classes</a></li>
               <li><a href="https://linux.do/t/topic/1428540">自建与机场取舍</a></li>
-              <li><a href="https://linux.do/t/topic/888046">LinuxDo 链式代理图解</a></li>
+              <li><a href="https://github.com/NanoCloud-Release/mihomo-landing-isp-chains">Mihomo 链式代理专用 skill</a></li>
               <li><a href="https://linux.do/t/topic/1993844">从购买服务器到自建节点</a></li>
             </ul>
           </section>
@@ -594,7 +597,7 @@ sequenceDiagram
               <li><a href="https://arxiv.org/abs/2606.18427">中国机场生态研究论文</a></li>
             </ul>
           </section>
-          <p class="source-update">2026 年 7 月 18 日：旧文档内容与来源清单已合并到本页。</p>
+          <p class="source-update">2026 年 7 月 29 日：同步官方 Windows 排障、网络观察、证书说明和链式代理配置实践。</p>
         </div>
       </div>
     </section>
