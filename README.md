@@ -126,7 +126,7 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 | 本机持续质量 | 本机到目标的连续延迟、丢包和路径变化 | Agent 调用 [NextTrace](https://github.com/nxtrace/NTrace-core) skill，优先使用 `nexttrace_mtr_report`，需要原始记录时再用 `nexttrace_mtr_raw` | 高级 |
 | DNS、TCP 和 HTTP 细节 | DNS 解析、端口连通、HTTP 状态，以及解析、连接和 SSL 耗时 | [ITDOG DNS](https://www.itdog.cn/dns/)、[ITDOG TCPing](https://www.itdog.cn/tcping/)、[ITDOG 网站测速](https://www.itdog.cn/http/) | 可选 |
 | 真实业务验收 | 网页、登录、视频、会议、下载或 AI/API 能不能正常使用 | 直接访问实际要用的服务；流媒体需求优先跑解锁测试 | 必要 |
-| BGP / RPKI 节点判断 | IP 对应的前缀、origin ASN、公告状态、RPKI、AS_PATH 和上游信息 | 预留 Agent skill：`airport-node-bgp-rpki-audit`。[GitHub 仓库](https://github.com/NanoCloud-Release/airport-node-bgp-rpki-audit)待上传。人工复核用 [BGP.Tools](https://bgp.tools/) 和 [RIPEstat](https://stat.ripe.net/) | 高级 |
+| BGP / RPKI 节点判断 | IP 对应的前缀、origin ASN、公告状态、RPKI、AS_PATH 和上游信息 | Agent skill：[`ip-network-inference`](https://github.com/NanoCloud-Release/ip-network-inference)。人工复核用 [BGP.Tools](https://bgp.tools/) 和 [RIPEstat](https://stat.ripe.net/) | 高级 |
 
 </details>
 
