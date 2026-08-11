@@ -22,7 +22,7 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 ## NanoCloud不提供什么
 
 - 家宽
-- IELP/IPLC
+- IELP/IPLC专线
 - 中转
 
 ## NanoCloud 注册入口与[独立指南](https://nanocloud-release.github.io/NanoCloud/)
@@ -45,7 +45,7 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 总之用不用就看需求，有需求才有解决方案。
 
 ## 如何判断自己需要的客户端
-需求
+需求最重要，若是需要使用GPT PRO或Claude MAX这些对IP质量看重的昂贵订阅服务，想要自购商业ISP，用来当链式代理，那必须得用开源客户端或内核。（至少我不知道什么比原客户端能让用户配置链式代理）
 
 ## 套餐配置和价格
 
@@ -60,8 +60,10 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 | 双鱼座 | ¥15 | 480G | 500Mbps | 8 台 | 高流量和多设备，可退款 |
 | 射手座 | ¥20 | 650G | 不限速 | 10 台 | 家庭共享与重度使用，可退款 |
 
-当前购买页只显示月付，年付按 10 个月的月付价格结算；法定节假日前后可以留意Telegram 频道的活动代码，使用促销代码可优惠15%（优惠只支持年付）。
-
+当前购买页只显示月付，年付按 12 个月的月付价格结算；法定节假日前后可以留意Telegram 频道是否有活动代码，使用促销代码可优惠15%（优惠只支持年付）。
+新年优惠代码 已过期
+劳动节优惠代码`MAYDAY85` 过期
+618优惠代码`OFF61885` 不知是否过期
 
 ## 客户端与节点类型
 
@@ -69,14 +71,14 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 
 | 使用方式 | 支持平台或客户端 | 特点 |
 | --- | --- | --- |
-| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点也更完整，猎户座55个 |
-| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续用自己熟悉的客户端，猎户座27个 |
-| 本地转换 | [Sub2Clash](https://github.com/0xWans/Sub2Clash) | 给熟悉 Clash 配置的高级用户，综合上述优势 |
+| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点数目也更完整，猎户座55个，射手座94个 |
+| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续用自己熟悉的客户端和自定义配置，猎户座27个，射手座41个 |
+| 本地转换 | [Sub2Clash](https://github.com/0xWans/Sub2Clash)  | 给熟悉 Clash 配置的高级用户，综合上述优势 |
 
 ### “通用”与“流量”节点
 
-- **通用节点：** 走 IPv4，大多数家庭宽带和手机流量可以直接使用。
-- **流量节点：** 走 IPv6，一般手机流量能联通，电脑需要光猫、路由器、运营商、设备和客户端每个环节都开IPv6，否则显示timeout（超时，无法联通）。
+- **通用节点：** 走 IPv4，99%的设备可以直接使用。
+- **流量节点：** 走 IPv6，一般手机流量能联通，电脑需要光猫、路由器、运营商、设备和客户端每个环节都开IPv6，否则显示timeout（超时，无法联通）。可以在[test-IPv6](https://test-ipv6.com/) 测试本机是否有IPv6，无ipv6肯定无法联通。
 
 ## 快速开始与 2 天试用
 
@@ -85,9 +87,19 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
     查看[使用文档](https://edu.yuque.men/app/knowledge)-对应平台的nano教程。Windows上需要在电脑上导入教程中下载的公开证书，(如对安装公开的安全证书有顾虑请看[为什么要装证书，安装公开证书危险吗](https://nanocloud-release.github.io/NanoCloud/#troubleshooting))才能正常登录使用官方客户端。
 3. 第一次试用或者购买可能需要等待片刻（5分钟或快或慢），才能联通服务器，之前节点一般测试timeout。
 4. 第一次先连“通用”节点，随手打开几个常用网页。（或者直接在软件内测试延时）
-5. 开始测试：最后留到晚高峰，测试 AI、流媒体、登录网站和故障恢复。
-6. to be contimue
+5. 开始测试：最后在晚高峰，测试 AI、流媒体、登录网站和故障恢复。
 
+测试思路
+1. 打开代理工具（这步教程有讲）
+2. 获得节点IP：
+   用[ping工具](https://www.itdog.cn/ping)对获得的节点的IP进行**持续ping**，可以得到节点在全国的测试情况，
+   找到自己的宽带对应的网络服务商（电信/联通/移动），找到自己所在省份的测试点，查看这一分钟测试获得的数据，看 延迟稳定与否，丢包率最好为0，延迟越低越好。
+<img width="2491" height="955" alt="image" src="https://github.com/user-attachments/assets/db72a689-4b6c-4544-82ad-5f23730e74dc" />
+   不过该计划虽然直观，但是运营商对小型测试包和实际的流量的策略也不同，不能完全依赖该测试。
+
+3. 接下来就是流媒体测试（YouTube），AI测试，社交媒体测试（telegram、X、reddit、discord）。
+
+不同节点的表现不同，可以选择客户端测得延迟低的来测试。
 
 ### 把 5G 试用流量用在关键测试上
 
@@ -96,25 +108,25 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 | 晚高峰 | 18:00–24:00 使用家庭宽带和手机流量 | 超时、断流和重连 |
 | ChatGPT | 连续对话 10–20 分钟 | juice测试结果、思考时长、长回答、登录、验证码和地区 |
 | 流媒体 | 连续播放 1080p，并多次拖动进度条 | 缓冲时间 |
-| 登录类网站 | 登录常用 Google、AI 或社交账户（twitter、linuxdo、discord、reddit） | 验证次数、识别国家和登录状态 |
-| 故障恢复 | 更新订阅、切换节点并重启客户端 | 恢复步骤和耗时 |
+| 登录类网站 | 登录常用 Google、AI 或社交账户（twitter、linuxdo、discord、reddit、X） | 验证次数、识别国家和登录状态 |
+| 故障恢复 | 节点是否timeout到影响使用，需要频繁切换节点 | 使用时是否感到卡顿需要换节点 |
 
-### 观察方法与工具。
+[流媒体解锁测试](https://unlock.icmp.ing/) powershell/终端 输入代码该网页代码测试
 
-| 方法 | 能观察什么 | 是否需要节点权限 | 测试网站或教程 |
+### 观察方法与工具
+
+| 观察项目 | 主要看什么 | 直接测试 / 技能 | 级别 |
 | --- | --- | --- | --- |
-| 客户端配置检查 | 节点地址、端口、协议、SNI、传输方式、当前选中节点 | 否 | [NanoCloud 使用文档](https://edu.yuque.men/app/knowledge) |
-| 出口 IP 识别 | 实际出口 IPv4/IPv6、ASN、运营商、注册网段、GeoIP | 否 | [IPPure](https://ippure.com/)、[IPLark](https://iplark.com/)、[MeowVPS IP Check](https://meowvps.com/tools/ip-check/) |
-| 基础连通测试 | DNS 解析、TCP/UDP 可达性、TLS/QUIC 握手时间 | 否 | [BrowserLeaks SSL](https://browserleaks.com/ssl)、[DNS Leak Test](https://www.dnsleaktest.com/) |
-| Ping 测试 | 往返延迟、抖动、丢包；但很多节点禁 ICMP | 否 | [Windows Test-Connection](https://learn.microsoft.com/powershell/module/microsoft.powershell.management/test-connection) |
-| Traceroute / NextTrace | 本地主机到入口或出口 IP 的逐跳路径、跨网情况 | 否 | [NextTrace](https://github.com/nxtrace/NTrace-core) |
-| MTR 持续测量 | 各跳长期延迟、抖动和丢包趋势 | 否 | [NextTrace MTR 模式](https://github.com/nxtrace/NTrace-core) |
-| 实际代理请求 | 网页访问成功率、首字节时间、DNS 泄漏、IPv6 支持 | 否 | [IPLeak](https://ipleak.net/)、[BrowserLeaks IP](https://browserleaks.com/ip) |
-| 吞吐量测试 | 单线程/多线程下载、上传、峰值与持续速度 | 否 | [Cloudflare Speed Test](https://speed.cloudflare.com/)、[Fast.com](https://fast.com/) |
-| 负载延迟测试 | 下载或上传满载时，延迟和丢包增加多少 | 否 | [Waveform Bufferbloat Test](https://www.waveform.com/tools/bufferbloat) |
-| 长期定时观察 | 可用率、故障时段、延迟分位数、出口 IP 变化 | 否 | [Uptime Kuma](https://github.com/louislam/uptime-kuma) |
-| 外部测点观察 | 从不同国家、运营商或 Looking Glass 看节点路由 | 否 | [Globalping](https://globalping.io/) |
-| BGP/RPKI 查询 | IP 宣告 ASN、上游关系、路由变更、RPKI 状态 | 否 | [BGP.Tools](https://bgp.tools/)、[RIPEstat](https://stat.ripe.net/) |
+| 客户端配置 | 节点地址、端口、协议、SNI、传输方式、当前选中的节点 | 客户端自己的状态页；[NanoCloud 文档](https://edu.yuque.men/app/knowledge)只作配置说明 | 基础 |
+| 出口 IP | 实际 IPv4/IPv6、ASN、运营商、地区和注册网段 | [IPCheck.DigVPS](https://ipcheck.digvps.com/) | 基础 |
+| IP 信誉 | IP 质量分、代理/VPN 标签、机房属性、邻近网段风险 | [IPCheck.DigVPS](https://ipcheck.digvps.com/)、[IPLark](https://iplark.com/)、[MeowVPS IP 检测](https://meowvps.com/tools/ip-check/) | 可选 |
+| DNS、WebRTC 和代理泄漏 | DNS 是否绕过代理，WebRTC 是否暴露真实地址，IPv4/IPv6 是否走了不同出口 | [BrowserLeaks IP](https://browserleaks.com/ip)、[BrowserLeaks DNS](https://browserleaks.com/dns)、[BrowserLeaks WebRTC](https://browserleaks.com/webrtc)、[DNS Leak Test](https://www.dnsleaktest.com/)、[IPLeak](https://ipleak.net/) | 必要 |
+| 流媒体解锁 | Netflix、Disney+、YouTube Premium 等服务能否播放对应地区内容 | [流媒体解锁测试](https://unlock.icmp.ing/) | 可选 |
+| 近端延迟和路径 | 选择离自己较近的运营商测点，查看 RTT、抖动、丢包和逐跳路径 | [ITDOG 在线 Ping](https://www.itdog.cn/ping/)、[ITDOG 路由追踪/MTR](https://www.itdog.cn/traceroute/) | 基础 |
+| 本机持续质量 | 本机到目标的连续延迟、丢包和路径变化 | Agent 调用 [NextTrace](https://github.com/nxtrace/NTrace-core) skill，优先使用 `nexttrace_mtr_report`，需要原始记录时再用 `nexttrace_mtr_raw` | 高级 |
+| DNS、TCP 和 HTTP 细节 | DNS 解析、端口连通、HTTP 状态，以及解析、连接和 SSL 耗时 | [ITDOG DNS](https://www.itdog.cn/dns/)、[ITDOG TCPing](https://www.itdog.cn/tcping/)、[ITDOG 网站测速](https://www.itdog.cn/http/) | 可选 |
+| 真实业务验收 | 网页、登录、视频、会议、下载或 AI/API 能不能正常使用 | 直接访问实际要用的服务；流媒体需求优先跑解锁测试 | 必要 |
+| BGP / RPKI 节点判断 | IP 对应的前缀、origin ASN、公告状态、RPKI、AS_PATH 和上游信息 | 预留 Agent skill：`airport-node-bgp-rpki-audit`。[GitHub 仓库](https://github.com/NanoCloud-Release/airport-node-bgp-rpki-audit)待上传。人工复核用 [BGP.Tools](https://bgp.tools/) 和 [RIPEstat](https://stat.ripe.net/) | 高级 |
 
 ## 常见问题速查
 未登录也可在[官网](https://edu.yuque.men/auth/register?code=KGPt0kjX)右下角的对话24小时AI智能解惑
