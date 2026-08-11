@@ -605,6 +605,25 @@ section[id] {
   gap: 88px;
 }
 
+.section-details {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.section-details summary,
+.source-details summary {
+  padding: 16px 0;
+  border-block: 1px solid var(--line);
+  color: var(--ink);
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.section-details[open] summary,
+.source-details[open] summary {
+  margin-bottom: 18px;
+}
+
 .timeline {
   margin: 0;
   padding: 0;
@@ -968,6 +987,15 @@ section[id] {
   color: #a8e7bf;
 }
 
+.source-details {
+  grid-column: 1 / -1;
+}
+
+.source-details summary {
+  color: #ffffff;
+  border-color: #39453e;
+}
+
 .source-groups {
   display: grid;
   grid-column: 1 / -1;
@@ -1097,6 +1125,10 @@ button:focus-visible {
   .compact-layout {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .section-details {
+    grid-column: 1;
   }
 
   .evidence-layout {
