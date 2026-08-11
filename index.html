@@ -157,7 +157,7 @@
       <div class="hero-inner">
         <p class="eyebrow">NanoCloud-Release 维护 · 2026 年 7 月 29 日更新</p>
         <h1>NanoCloud 机场</h1>
-        <p class="hero-lead">NanoCloud 是月付 ¥1–20 的共享代理机场，不用自己维护服务器。先拿常用设备跑一遍晚高峰、AI 和流媒体，合适再付费。</p>
+        <p class="hero-lead">NanoCloud 是月付 ¥1–20 的共享代理机场，不用自己维护服务器。先用常用设备跑一遍晚高峰、AI 和流媒体，合适再付费。</p>
         <ul class="hero-facts" aria-label="NanoCloud 摘要">
           <li><strong>¥1–20</strong><span>月付</span></li>
           <li><strong>100–650G</strong><span>每月流量</span></li>
@@ -220,6 +220,7 @@
           <dl class="fact-list">
             <div><dt>付费周期</dt><dd>当前公开结算页显示月付</dd></div>
             <div><dt>客户端</dt><dd>Android、Windows、macOS 与多种第三方客户端</dd></div>
+            <div><dt>节点地区</dt><dd>香港、日本（东京）、新加坡、韩国、马来西亚、台湾、美国西部和阿根廷</dd></div>
             <div><dt>节点类型</dt><dd>“通用”用于 IPv4。“流量”需要完整 IPv6 支持</dd></div>
             <div><dt>最终依据</dt><dd>价格、节点和优惠以控制台实时信息为准</dd></div>
           </dl>
@@ -297,7 +298,7 @@
           </article>
           <article class="guide-detail">
             <p class="detail-label">IP 与验证码</p>
-            <h3>Human 越高越好，但还要看滥用记录</h3>
+            <h3>Human 比例高还不够，先看滥用记录</h3>
             <p>比较数据中心出口时，可以先看 Cloudflare Radar 中 ASN 的 Bot vs. Human。Human 占比高、Bot 占比低，一般更少遇到人机验证。这个数据是 ASN 的聚合值，不能代替单个 IP 检查。</p>
             <ul class="plain-list">
               <li>多个信誉库是否同时标记 abuse、spam 或 proxy</li>
@@ -319,6 +320,8 @@
           <h2>国内 IDC 中转封锁加重，用户体验下滑</h2>
           <p>普通用户最容易看到的现象是节点突然变红、频繁超时、更新订阅后仍无法连接，或者刚恢复不久又要更换线路。以下是公开账号、运营者转述和用户反馈，不是官方封锁公告，也不能代表全国所有网络。</p>
         </div>
+        <details class="section-details">
+          <summary>展开时间线和五地观察</summary>
         <ol class="timeline">
           <li><time datetime="2025-11-25">2025-11-25</time><p>部分机场节点域名被大面积污染，更换新域名后仍可能很快再次被污染。</p></li>
           <li><time datetime="2025-12-02">2025-12-02</time><p>当月多数工作日出现中转线路通报，部分服务商开始缺少可替换的新 IP。</p></li>
@@ -347,6 +350,7 @@
             </tbody>
           </table>
         </div>
+        </details>
       </div>
     </section>
 
@@ -357,6 +361,8 @@
           <h2>共享机场、自建和链式代理差多少</h2>
           <p>下面按 2026 年 7 月 13 日的参考汇率计算。税费、换 IP 和维护时间没有算进去。</p>
         </div>
+        <details class="section-details">
+          <summary>展开成本对比和链式代理说明</summary>
         <div class="table-wrap">
           <table class="guide-table cost-table">
             <thead>
@@ -377,6 +383,7 @@
           <p>请使用 <a href="https://github.com/NanoCloud-Release/mihomo-landing-isp-chains">NanoCloud-Release/mihomo-landing-isp-chains</a>，让 NanoCloud 节点作为第一跳、ISP 代理作为落地出口。该 skill 会隐藏凭据、先给出修改预览，并优先修改 Clash Verge 的持久化配置片段。</p>
           <p>它使用 <code>dialer-proxy</code>，不会继续采用已经弃用的 <code>relay</code>；还会为不同落地出口设置独立健康检查和 provider 路径，并检查循环链路、旁路与严格出口。遇到版本相关行为时，它会重新核对当前 Mihomo 官方文档并纠正旧写法。</p>
         </div>
+        </details>
       </div>
     </section>
 
@@ -405,7 +412,7 @@
           <h3>这五项各测一次</h3>
           <dl>
             <div><dt>晚高峰</dt><dd>20:00–23:00 分别用家庭宽带和手机流量，记录断流与重连。</dd></div>
-            <div><dt>AI 长对话</dt><dd>连续使用 10–20 分钟，观察截断、重登、验证码和地区漂移。</dd></div>
+            <div><dt>AI 长对话</dt><dd>连续使用 10–20 分钟，观察自己的身份认知、juice测试结果、截断、重登、验证码和地区漂移。</dd></div>
             <div><dt>流媒体</dt><dd>播放 1080p 并拖动进度条，记下缓冲和切换节点后的恢复时间。</dd></div>
             <div><dt>登录网站</dt><dd>打开常用 Google、AI 或社交账户，看识别国家和登录状态是否保持。</dd></div>
             <div><dt>故障恢复</dt><dd>更新订阅、切换节点并重启客户端，确认自己能把连接恢复。</dd></div>
@@ -530,7 +537,7 @@ sequenceDiagram
       <div class="inner evidence-layout">
         <div>
           <p class="eyebrow">来源与更新</p>
-          <h2>数字和案例从哪里来</h2>
+          <h2>这些数字从哪里来</h2>
           <p>本页由 <a href="https://github.com/NanoCloud-Release">NanoCloud-Release</a> 独立维护，2026 年 7 月 29 日更新。套餐、节点和客户端信息核对于 7 月 17 日。</p>
           <p>产品信息来自控制台与公开结算页，体验记录覆盖中国电信晚高峰。网络事件优先采用服务商公告，论坛讨论用于补充用户案例与反例。VPS 成本使用公开价格，汇率取自 Frankfurter。</p>
           <p>论坛内容不能替代产品公告，也不能证明 NanoCloud 当前质量。AI 与 IP 相关案例的结论彼此冲突，所以页面只把出口 IP 作为变量之一。</p>
@@ -539,6 +546,8 @@ sequenceDiagram
           <a href="https://github.com/NanoCloud-Release/NanoCloud/issues/new"><i data-lucide="message-square-warning"></i><span>报告错误或过时信息</span><i data-lucide="arrow-right"></i></a>
           <a href="https://github.com/NanoCloud-Release/NanoCloud"><i data-lucide="github"></i><span>查看仓库与变更</span><i data-lucide="arrow-right"></i></a>
         </div>
+        <details class="source-details">
+          <summary>展开来源清单</summary>
         <div id="source-list" class="source-groups">
           <section class="source-group">
             <h3>网络事件与官方公告</h3>
@@ -599,6 +608,7 @@ sequenceDiagram
           </section>
           <p class="source-update">2026 年 7 月 29 日：同步官方 Windows 排障、网络观察、证书说明和链式代理配置实践。</p>
         </div>
+        </details>
       </div>
     </section>
   </main>

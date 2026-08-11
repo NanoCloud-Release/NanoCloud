@@ -160,6 +160,29 @@ body {
   border-color: var(--border);
 }
 
+.markdown-body details {
+  margin: 28px 0;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  background: #fbfcfd;
+}
+
+.markdown-body details summary {
+  padding: 14px 0;
+  color: #17211b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.markdown-body details[open] summary {
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.markdown-body details > :last-child {
+  margin-bottom: 18px;
+}
+
 @media (max-width: 720px) {
   .markdown-body {
     padding: 28px 18px 56px;

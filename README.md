@@ -1,8 +1,8 @@
 # NanoCloud 机场：1 元起、2 天 5G 试用与客户端指南
 
-NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 100–650G 流量，可同时连接 2–10 台设备。
-想先看看自己的线路是否合适，可以通过 AFF 入口领取白羊座 2 天 / 5G 试用。
-注册、客户端、节点区别、测试方法和排障都整理在下面。
+NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流量，可同时连接 2–10 台设备。
+想先确认自己的线路是否合适，可以通过 AFF 入口领取白羊座 2 天 / 5G 试用。
+下面按注册、客户端、节点、测试和排障的顺序整理。
 
 ![最低月付](https://img.shields.io/badge/最低月付-¥1-1f883d)
 ![白羊座试用](https://img.shields.io/badge/AFF试用-2天%20%7C%205G-0969da)
@@ -11,41 +11,43 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 
 ## NanoCloud 能提供什么
 
-- 四档套餐 100（100Mbps）、300（300Mbps）、480（500Mbps）、650G（不限速） 月流量。
-- 香港、东京、新加坡和美国西部等地区节点，协议包括 VLESS 、TUIC 和 Hysteria2，以及mieru。
-- 官方客户端需要跟着教程配置，但不需要clash verge一样进行复杂配置。小白和不想折腾的用户福音。
-- [@NanoAir_bot](https://t.me/NanoAir_bot) 可用于购买、获取订阅和每日签到（每月高达90G）和工单反馈；
+- 四档套餐，分别提供 100G（100Mbps）、300G（300Mbps）、480G（500Mbps）和 650G（不限速）月流量。
+- 香港、东京、新加坡、美国西部等地区节点，协议包括 VLESS、TUIC、Hysteria2 和 mieru。
+- 官方客户端按教程配置即可，不用像 Clash Verge 那样自己维护一套复杂配置。
+- [@NanoAir_bot](https://t.me/NanoAir_bot) 可以购买、获取订阅、每日签到（每月最高 90G）和提交工单。
 - 白羊座及以上套餐另有 Telegram 专用代理。
-- 详细的文档
+- 有详细的文档。
 - 官网直连，无需代理即可获取配置。
 
-## NanoCloud不提供什么
+## NanoCloud 不提供什么
 
 - 家宽
-- IELP/IPLC专线
+- IEPL/IPLC 专线
 - 中转
 
 ## NanoCloud 注册入口与[独立指南](https://nanocloud-release.github.io/NanoCloud/)
 
 | 入口 | 地址 | 用途 |
 | --- | --- | --- |
-| AFF 注册 | [试用注册](https://edu.yuque.men/auth/register?code=KGPt0kjX) | 白羊座套餐 5GB流量  2 天试用 |
+| AFF 注册 | [试用注册](https://edu.yuque.men/auth/register?code=KGPt0kjX) | 白羊座套餐 5GB 流量，2 天试用 |
 | 普通注册 | [直接注册](https://edu.yuque.men/auth/register) | 不使用邀请码 |
 | Pages 指南 | [NanoCloud 机场介绍](https://nanocloud-release.github.io/NanoCloud/) | 套餐、客户端、教程和排障 |
 | 教程频道 | [NanoCloudWiki](https://t.me/NanoCloudWiki) | 客户端下载与使用教程 |
 | Telegram Bot | [@NanoAir_bot](https://t.me/NanoAir_bot) | 购买、订阅、签到与反馈 |
 
 
-邀请码 `KGPt0kjX`。通过它注册，推荐者可能收到平台返佣，你会拿到白羊座 2 天 / 5G 试用，套餐价格不变；不想使用邀请码就用普通注册入口，但我不确定是否有试用。
+邀请码是 `KGPt0kjX`。通过它注册，推荐者可能收到平台返佣，你会拿到白羊座 2 天 / 5G 试用，套餐价格不变；不想使用邀请码就用普通注册入口，但我不确定是否有试用。
 
-建议先把试用用完再购买，**试用期间购买配置会直接覆盖剩余试用时间和流量**。
-下载nanocloud的官方客户端，安装证书，有更多、更稳定的节点。猎户座开源客户端能导入27个节点，官方端有54个节点。射手座开源客户端46节点，官方端81个。不同套餐订阅节点不同。（官方客户端支持 Android、Windows 和 macOS，基于mihomo内核，与clash verge一样的内核，我猜的。）
-注意事项：①查看[使用文档](https://edu.yuque.men/app/knowledge)-对应平台的nano教程。Windows上需要在电脑上导入教程中下载的公开证书，才能正常登录使用官方客户端。
-若不想下载，也可以让AI agent使用<https://github.com/0xWans/Sub2Clash> 项目解密后再导入自己在用的代理软件。这个方案也需要下载客户端和证书。不过这个方案获取到节点信息不利于机场主保护节点，可能会随着保护措施升级而失效。但是用户自由度高啊，链式、自定义配置、自定义分流等进阶方案都要用到开源客户端。
-总之用不用就看需求，有需求才有解决方案。
+建议先把试用用完再购买，**试用期间购买会直接覆盖剩余的试用时间和流量**。
+安装 NanoCloud 官方客户端并按教程导入证书，可以看到更多节点。以当前记录为例，猎户座开源客户端可导入 27 个节点，官方客户端有 54 个；射手座开源客户端有 46 个，官方客户端有 81 个。不同套餐的订阅内容会变化，数字只作当时参考。官方客户端支持 Android、Windows 和 macOS，使用 Mihomo 内核，这一点与 Clash Verge 相同。
+先看[使用文档](https://edu.yuque.men/app/knowledge)中对应平台的 Nano 教程。Windows 需要导入教程提供的公开证书，才能正常登录官方客户端。
+如果希望继续使用自己的代理软件，可以让 AI agent 调用 [Sub2Clash](https://github.com/0xWans/Sub2Clash) 解密后再导入。这个方案同样需要客户端和证书，拿到节点信息后也可能因保护措施升级而失效，但链式代理、自定义配置和自定义分流都更方便。
+
+## 怎么选客户端
+先看需求。如果你要使用对 IP 质量敏感的 ChatGPT Pro 或 Claude Max，并打算自购商业 ISP 作为链式代理，就需要开源客户端或直接使用内核。官方客户端没有提供这种配置入口。
 
 ## 如何判断自己需要的客户端
-需求最重要，若是需要使用GPT PRO或Claude MAX这些对IP质量看重的昂贵订阅服务，想要自购商业ISP，用来当链式代理，那必须得用开源客户端或内核。（至少我不知道什么比原客户端能让用户配置链式代理）
+需求最重要，若是需要使用 GPT Pro 或 Claude Max 这些对 IP 质量看重的昂贵订阅服务，想要自购商业 ISP，用来当链式代理，那必须得用开源客户端或内核。（至少我不知道什么比原客户端能让用户配置链式代理）
 
 ## 套餐配置和价格
 
@@ -60,10 +62,10 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 | 双鱼座 | ¥15 | 480G | 500Mbps | 8 台 | 高流量和多设备，可退款 |
 | 射手座 | ¥20 | 650G | 不限速 | 10 台 | 家庭共享与重度使用，可退款 |
 
-当前购买页只显示月付，年付按 12 个月的月付价格结算；法定节假日前后可以留意Telegram 频道是否有活动代码，使用促销代码可优惠15%（优惠只支持年付）。
-新年优惠代码 已过期
-劳动节优惠代码`MAYDAY85` 过期
-618优惠代码`OFF61885` 不知是否过期
+当前购买页只显示月付，年付按 12 个月的月付价格结算。法定节假日前后可以留意 Telegram 频道是否有活动代码，促销码只支持年付，历史上曾有 15% 折扣。
+新年优惠码已过期。
+劳动节优惠码 `MAYDAY85` 已过期。
+618 优惠码 `OFF61885` 的状态未核实。
 
 ## 客户端与节点类型
 
@@ -71,47 +73,45 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 
 | 使用方式 | 支持平台或客户端 | 特点 |
 | --- | --- | --- |
-| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点数目也更完整，猎户座55个，射手座94个 |
-| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续用自己熟悉的客户端和自定义配置，猎户座27个，射手座41个 |
-| 本地转换 | [Sub2Clash](https://github.com/0xWans/Sub2Clash)  | 给熟悉 Clash 配置的高级用户，综合上述优势 |
+| NanoCloud 官方客户端 | Android、Windows、macOS | 配置省事，节点更完整；猎户座 55 个，射手座 94 个 |
+| 控制台一键导入 | Hiddify Next、Clash Verge、FlClash、Karing、sing-box | 继续使用熟悉的客户端和自定义配置；猎户座 27 个，射手座 41 个 |
+| 本地转换 | [Sub2Clash](https://github.com/0xWans/Sub2Clash) | 适合熟悉 Clash 配置、需要自己改规则的用户 |
 
 ### “通用”与“流量”节点
 
-- **通用节点：** 走 IPv4，99%的设备可以直接使用。
-- **流量节点：** 走 IPv6，一般手机流量能联通，电脑需要光猫、路由器、运营商、设备和客户端每个环节都开IPv6，否则显示timeout（超时，无法联通）。可以在[test-IPv6](https://test-ipv6.com/) 测试本机是否有IPv6，无ipv6肯定无法联通。
+- **通用节点：** 走 IPv4，绝大多数设备可以直接使用。
+- **流量节点：** 走 IPv6。手机流量通常能联通，电脑则要求光猫、路由器、运营商、设备和客户端每个环节都支持 IPv6，否则会显示 timeout。可以用 [test-IPv6](https://test-ipv6.com/) 检查本机；没有 IPv6 就无法使用这类节点。
 
 ## 快速开始与 2 天试用
 
 1. 用 AFF 试用注册，然后进入控制台。
-2. 没有代理客户端则点击APP下载，下载官方客户端；已有客户端则点“一键导入”。
-    查看[使用文档](https://edu.yuque.men/app/knowledge)-对应平台的nano教程。Windows上需要在电脑上导入教程中下载的公开证书，(如对安装公开的安全证书有顾虑请看[为什么要装证书，安装公开证书危险吗](https://nanocloud-release.github.io/NanoCloud/#troubleshooting))才能正常登录使用官方客户端。
-3. 第一次试用或者购买可能需要等待片刻（5分钟或快或慢），才能联通服务器，之前节点一般测试timeout。
-4. 第一次先连“通用”节点，随手打开几个常用网页。（或者直接在软件内测试延时）
-5. 开始测试：最后在晚高峰，测试 AI、流媒体、登录网站和故障恢复。
+2. 没有代理客户端就点“APP 下载”安装官方客户端；已经有客户端则用“一键导入”。先看[使用文档](https://edu.yuque.men/app/knowledge)中对应平台的 Nano 教程。Windows 需要导入教程提供的公开证书；担心证书安全时，先看[证书说明](https://nanocloud-release.github.io/NanoCloud/#troubleshooting)。
+3. 第一次试用或购买后，服务器可能要过几分钟才能联通。在此之前，节点测速一般会显示 timeout。
+4. 第一次先连“通用”节点，打开几个常用网页，确认基本连接正常。
+5. 晚高峰再测 AI、流媒体、登录网站和故障恢复。
 
-测试思路
-1. 打开代理工具（这步教程有讲）
-2. 获得节点IP：
-   用[ping工具](https://www.itdog.cn/ping)对获得的节点的IP进行**持续ping**，可以得到节点在全国的测试情况，
-   找到自己的宽带对应的网络服务商（电信/联通/移动），找到自己所在省份的测试点，查看这一分钟测试获得的数据，看 延迟稳定与否，丢包率最好为0，延迟越低越好。
-<img width="2491" height="955" alt="image" src="https://github.com/user-attachments/assets/db72a689-4b6c-4544-82ad-5f23730e74dc" />
-   不过该计划虽然直观，但是运营商对小型测试包和实际的流量的策略也不同，不能完全依赖该测试。
+### 一套够用的测试顺序
 
-3. 接下来就是流媒体测试（YouTube），AI测试，社交媒体测试（telegram、X、reddit、discord）。
+1. 打开代理工具并连接一个延迟较低的通用节点。
+2. 用 [ITDOG Ping](https://www.itdog.cn/ping) 对节点 IP 做一分钟持续测试，选择自己的省份和运营商，观察延迟变化与丢包。小型 Ping 包和真实业务流量可能走不同策略，所以这一步只作参考。
+3. 打开 YouTube、常用 AI 服务和 Telegram、X、Reddit、Discord，直接测试平时会做的事。
 
-不同节点的表现不同，可以选择客户端测得延迟低的来测试。
+<img width="2491" height="955" alt="ITDOG 持续 Ping 的全国测试结果" src="https://github.com/user-attachments/assets/db72a689-4b6c-4544-82ad-5f23730e74dc" />
 
 ### 把 5G 试用流量用在关键测试上
 
 | 测试 | 建议方法 | 重点观察 |
 | --- | --- | --- |
 | 晚高峰 | 18:00–24:00 使用家庭宽带和手机流量 | 超时、断流和重连 |
-| ChatGPT | 连续对话 10–20 分钟 | juice测试结果、思考时长、长回答、登录、验证码和地区 |
+| ChatGPT | 连续对话 10–20 分钟 | 自己的身份认知、juice测试结果、思考时长、长回答、登录、验证码和地区 |
 | 流媒体 | 连续播放 1080p，并多次拖动进度条 | 缓冲时间 |
 | 登录类网站 | 登录常用 Google、AI 或社交账户（twitter、linuxdo、discord、reddit、X） | 验证次数、识别国家和登录状态 |
-| 故障恢复 | 节点是否timeout到影响使用，需要频繁切换节点 | 使用时是否感到卡顿需要换节点 |
+| 故障恢复 | 节点是否 timeout 到影响使用，是否需要频繁切换 | 使用时是否卡顿，切换后多久恢复 |
 
-[流媒体解锁测试](https://unlock.icmp.ing/) powershell/终端 输入代码该网页代码测试
+[流媒体解锁测试](https://unlock.icmp.ing/)会生成命令，可在 PowerShell 或终端中运行。
+
+<details>
+<summary><strong>展开观察方法与工具</strong></summary>
 
 ### 观察方法与工具
 
@@ -128,8 +128,10 @@ NanoCloud 的月付从 ¥1 起，最贵一档 ¥20；四档套餐分别提供 10
 | 真实业务验收 | 网页、登录、视频、会议、下载或 AI/API 能不能正常使用 | 直接访问实际要用的服务；流媒体需求优先跑解锁测试 | 必要 |
 | BGP / RPKI 节点判断 | IP 对应的前缀、origin ASN、公告状态、RPKI、AS_PATH 和上游信息 | 预留 Agent skill：`airport-node-bgp-rpki-audit`。[GitHub 仓库](https://github.com/NanoCloud-Release/airport-node-bgp-rpki-audit)待上传。人工复核用 [BGP.Tools](https://bgp.tools/) 和 [RIPEstat](https://stat.ripe.net/) | 高级 |
 
+</details>
+
 ## 常见问题速查
-未登录也可在[官网](https://edu.yuque.men/auth/register?code=KGPt0kjX)右下角的对话24小时AI智能解惑
+未登录也可以使用[官网](https://edu.yuque.men/auth/register?code=KGPt0kjX)右下角的 24 小时 AI 对话。
 登录查看 [NanoCloud 官方使用文档](https://edu.yuque.men/app/knowledge)，选择对应系统和 Nano 客户端教程。
 
 Windows 客户端仅支持 Windows 10 及以上系统。安装或排查前，先彻底退出其他代理、VPN 和可能拦截网络驱动的安全软件，避免多个工具同时接管系统代理或虚拟网卡。若临时关闭防火墙或安全防护，处理完成后应重新开启。
@@ -159,7 +161,7 @@ Windows 版 Nano 登录时如果出现下面的错误，客户端可能没有成
 登录失败：type 'String' is not a subtype of type 'int' of 'index'
 ```
 
-按照 [NanoCloud 官方使用文档](https://edu.yuque.men/app/knowledge) 中的 Windows Nano 教程安装 `https_windows.crt` 后，Windows 可以使用其中的 `ISRG Root X1` 公钥验证 Nano 登录服务器的证书链。证书和公钥的作用是验证对方服务器身份并建立受信任的 HTTPS 连接；连接成功后，客户端才能访问登录接口。
+按照 [NanoCloud 官方使用文档](https://edu.yuque.men/app/knowledge) 中的 Windows Nano 教程安装 `https_windows.crt` 后，Windows 可以使用其中的 `ISRG Root X1` 公钥验证 Nano 登录服务器的证书链。证书和公钥用来验证对方身份并建立受信任的 HTTPS 连接。连接成功后，客户端才能访问登录接口。
 
 <details>
 <summary><strong>查看完整的 HTTPS 证书验证流程</strong></summary>
@@ -197,7 +199,7 @@ NanoCloud **不持有该证书对应的私钥**，因此无法伪造或签发任
 
 该证书文件本身只包含**公开信息和公钥**，任何人都可以下载。真正用于签发网站证书的是 ISRG 的根 CA 私钥，由机构严格保管，不会随证书文件分发，也不会因用户安装证书而泄露给 NanoCloud。
 
-安装 ISRG Root X1 的作用只是：将 Let's Encrypt 的根证书加入 Windows 信任库，使系统能够验证由该体系签发的网站证书是否真实有效。
+安装 ISRG Root X1 只会把 Let's Encrypt 的根证书加入 Windows 信任库，让系统验证该体系签发的网站证书是否真实有效。
 
 ### HTTPS 连接时发生了什么
 
@@ -226,7 +228,7 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 
 `ISRG Root X1` 的情况不同。NanoCloud 没有对应私钥，仅安装这张公开根证书，无法让它伪造 `google.com`、银行网站或其他网站的证书，也无法据此解密 HTTPS 内容。
 
-记得验证下载的证书是否是ISRG Root X1的。
+下载后请核对证书名称和指纹，确认它确实是 ISRG Root X1。
 
 </details>
 
@@ -235,20 +237,24 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 | 主要需求 | 优先检查 | 误区 |
 | --- | --- | --- |
 | ChatGPT 稳定使用* | 模型是否按账户权益路由、长回答是否截断、地区是否漂移 | IP 只是风控因素之一，账号、设备和浏览器也会影响结果 |
-| 不要频繁验证 | 登录 Google、ChatGPT 等服务时是否反复验证、是否总得过cloudflare盾 | IP风险分数、“原生 IP”、“家宽”标签不能保证低风险；结合 [IPPure](https://ippure.com/cloudflare)、[IPLark](https://iplark.com/) 和 [MeowVPS](https://meowvps.com/tools/ip-check/) 交叉检查 |
+| 不要频繁验证 | 登录 Google、ChatGPT 等服务时是否反复验证、是否总要通过 Cloudflare 验证 | IP 风险分数、“原生 IP”、“家宽”标签不能保证低风险；结合 [IPPure](https://ippure.com/cloudflare)、[IPLark](https://iplark.com/) 和 [MeowVPS](https://meowvps.com/tools/ip-check/) 交叉检查 |
 | 流媒体不卡顿 | 1080p/4K 连续播放、拖动进度条检测卡顿 | 峰值测速高不代表单线程和目标服务正常 |
 | 晚高峰稳定** | 18:00–23:00 的超时、断流、重连 | 白天满速不能代表晚上；使用 [Traceroute / NextTrace](https://github.com/nxtrace/NTrace-core) 或 MTR 测试本机到机场入口服务器的线路 |
-| 大流量和高速 | 流量、倍率、带宽、设备数 | 低价超大流量可能伴随限速或无售后，节点总数多不一定实际多，名字相近的节点可能是一个vps进行多个入口分流 |
+| 大流量和高速 | 流量、倍率、带宽、设备数 | 低价大流量可能伴随限速或无售后。节点总数多不代表出口真的更多，名字相近的节点也可能只是同一台 VPS 的多个入口 |
 | IP 质量 | ASN、共享人数、历史滥用、地区一致性和稳定性 | 风险评分不能代表全部质量，建议同时查看 [IP.Net.Coffee](https://ip.net.coffee/)、[IPPure](https://ippure.com/)、[IPLark](https://iplark.com/) 和 [MeowVPS](https://meowvps.com/tools/ip-check/) |
 
 
-*说实话，要找到优秀的节点比较累，用的人本来就多。若有必要，比如得用pro等高级模型，推荐购买/共享一个ISP节点，并根据本文 ### 使用专用 skill 配置链式代理 的skill配置好链式代理，才是正道
-**电信只有CN2网能无感知的稳定，联通和移动比电信骨干网好一点。
+\* 找到长期好用的节点并不轻松，热门节点的共享人数也会变化。需要 Pro 等高级模型时，可以另购或共享 ISP 节点，再按下方的链式代理说明配置。
+
+\*\* 电信线路是否稳定与具体入口有关，不能只看 CN2 标签。联通和移动的体验也要按本地运营商实测。
 
 目前记录的实测环境是中国电信晚高峰，网页、流媒体和 ChatGPT 长对话都能稳定使用，陕西、浙江电信已知稳定。换了地区或运营商，结果可能不同，2 天试用正好可以自己跑一遍。
 
 
-## 2026 年网络观察：国内IDC中转封锁加重，用户体验下滑
+<details>
+<summary><strong>展开 2026 年网络观察与五地证据</strong></summary>
+
+## 2026 年网络观察：国内 IDC 中转封锁加重，用户体验下滑
 
 这段时间的变化主要集中在国内中转被清退、节点域名被污染、境外 IP 被封和机场更换协议。对普通用户来说，最直接的表现就是节点突然变红、频繁超时、更新订阅后仍无法连接，或者同一家机场今天能用、几天后又要换线路。
 
@@ -286,7 +292,7 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 
 这些记录说明，换协议或改用 IPv6 可能暂时改善特定线路，但不能保证长期可用。测试时应分别检查 IPv4、IPv6、直连和中转节点，并确认客户端是否支持当前协议。依赖代理完成工作时，还需要准备不同入口或不同技术路线的备用服务。
 
-## 混淆协议分析
+</details>
 
 ## 与自建成本比较
 
@@ -297,12 +303,15 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 | 方案 | 公开基础成本 | 得到什么 | 主要代价 |
 | --- | ---: | --- | --- |
 | NanoCloud | ¥1–20/月 | 多地区节点、100–650G/月、2–10 台设备同时在线、低维护 | 共享出口，不是固定或独享 IP |
-| nanocloud + 2.5$ 商业宽带 IP 落地 | ¥17.94–36.94/月 | 机场负责传输，$2.5/月的商业宽带 IP 提供落地 | 机场和商业宽带IP链式代理会增加延迟，配置方法见[使用专用-skill-配置链式代理](#使用专用-skill-配置链式代理) |
+| NanoCloud + $2.5 商业宽带 IP 落地 | ¥17.94–36.94/月 | 机场负责传输，$2.5/月的商业宽带 IP 提供落地 | 链式代理会增加延迟，配置方法见[链式代理配置说明](#使用专用-skill-配置链式代理) |
 | 单台主流 VPS 自建 | 约 ¥33.89–40.67/月 | 独立实例、单地区、约 1TB 流量 | 自己维护；IP 或线路被封后要自己维护，维护量很高 |
 | 两台 $5 VPS 自建中转 | 约 ¥67.78/月 | 入口和落地分离 | 维护量很高 |
-| IPLC/IEPL专线或中转 | 不确定，通常高昂 | 高速、稳定 | 价格通常是直连机场5倍 |
+| IPLC / IEPL 专线或中转 | 不确定，通常高昂 | 高速、稳定 | 价格通常是直连机场的 5 倍 |
 
 <!-- markdownlint-enable MD013 -->
+
+<details>
+<summary><strong>展开链式代理配置说明</strong></summary>
 
 ### 使用专用 skill 配置链式代理
 
@@ -325,9 +334,14 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 - 隐藏订阅 URL、UUID、用户名、密码和 token
 - 修改后检查 YAML 引用、重复名称、循环链路、旁路和严格出口，并在条件允许时运行 Mihomo 配置测试
 
-官方文档和 Mihomo 实现会更新。该 skill 会在每次处理版本敏感配置时重新核对官方资料，并根据当前文档修正旧写法，而不是长期依赖 README 中的一份静态示例。配置完成后仍应分别检查出口 IP、DNS 泄漏、IPv4/IPv6、延迟、晚高峰稳定性和实际代理请求。
+官方文档和 Mihomo 实现会更新。每次处理版本敏感配置时，skill 都会重新核对官方资料并修正旧写法。配置完成后仍应检查出口 IP、DNS 泄漏、IPv4/IPv6、延迟、晚高峰稳定性和实际代理请求。
 
-自建适合需要固定出口、控制权和账号环境一致性的用户；机场更适合低预算、大流量、多地区和不愿维护服务器的用户。需要 AI 独立出口但又重视传输质量时，可以用机场节点作为入口，再接自己的 VPS 或商业宽带 IP 落地，机场订阅费用+落地IP费用。
+自建适合需要固定出口、控制权和账号环境一致性的用户。机场适合低预算、大流量、多地区和不想维护服务器的用户。需要 AI 独立出口、又重视传输质量时，可以让机场节点做入口，再接 VPS 或商业宽带 IP 落地，成本就是订阅费加落地 IP 费用。
+
+</details>
+
+<details>
+<summary><strong>展开来源与更新记录</strong></summary>
 
 ## 来源与更新
 
@@ -336,3 +350,5 @@ Burp Suite、Charles、Fiddler、mitmproxy 等工具的做法不同：
 - [DigitalOcean Droplet Pricing](https://www.digitalocean.com/pricing/droplets)
 - [Vultr Plans API](https://api.vultr.com/v2/plans?type=vc2&per_page=100)
 - [Akamai Cloud Linode Types API](https://api.linode.com/v4/linode/types?page_size=100)
+
+</details>
