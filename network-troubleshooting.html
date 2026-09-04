@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NanoCloud 网络故障与排障</title>
+  <meta name="description" content="NanoCloud 网络异常排查：按账号、客户端、家庭网络和节点出口定位节点变红、IPv6 冲突、晚高峰断流及代理失效问题。">
+  <link rel="canonical" href="https://nanocloud-release.github.io/NanoCloud/network-troubleshooting.html">
+  <link rel="stylesheet" href="assets/site.css?v=20260905-2">
+</head>
+<body class="marketing-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="marketing-header">
+    <div class="marketing-shell marketing-nav-shell">
+      <a class="marketing-brand" href="index.html" aria-label="NanoCloud 首页"><span class="marketing-brand-mark">N</span><span>NanoCloud</span></a>
+      <nav class="marketing-nav" aria-label="主导航"><a href="plans.html">套餐</a><a href="trial.html">试用</a><a href="windows-client.html">客户端</a><a href="network-troubleshooting.html" aria-current="page">排障</a></nav>
+      <a class="marketing-nav-cta" rel="sponsored nofollow" href="https://edu.yuque.men/auth/register?code=KGPt0kjX&amp;utm_source=github_pages&amp;utm_medium=referral&amp;utm_campaign=nanocloud_trial&amp;utm_content=network_nav">领取 2 天试用 <span>↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="marketing-detail-hero">
+      <div class="marketing-shell marketing-detail-hero-grid">
+        <div>
+          <p class="marketing-eyebrow">网络排障</p>
+          <h1>网络故障</h1>
+          <p class="marketing-lead">按账号、客户端、家庭网络、节点出口的顺序定位。一次只改一个变量，才能知道哪个动作真正解决了问题。</p>
+          <div class="marketing-actions"><a class="marketing-button marketing-button-primary" href="trial.html">先做交叉测试 <span>→</span></a><a class="marketing-button marketing-button-secondary" href="windows-client.html">看客户端排障 <span>↗</span></a></div>
+          <p class="marketing-note">白天和 20:00–23:00 各记录一次更有参考价值。换协议只能暂时改善特定线路，不能保证长期可用。</p>
+        </div>
+        <aside class="marketing-detail-panel marketing-troubleshoot-panel" aria-label="排障原则">
+          <p class="marketing-eyebrow">排障顺序</p>
+          <strong>一次只改一个变量</strong>
+          <div class="marketing-route-line"><span>账号</span><i></i><span>客户端</span><i></i><span>家庭网络</span><i></i><span>出口</span></div>
+          <p>先保存节点、时间和错误现象，再切换一个变量复测。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="marketing-section marketing-issue-section">
+      <div class="marketing-shell">
+        <div class="marketing-section-intro"><p class="marketing-eyebrow">常见现象</p><h2>网络故障</h2><p>先判断问题发生在哪一层，再决定是否更换节点、关闭 IPv6 或检查代理设置。</p></div>
+        <div class="marketing-issue-grid">
+          <article><span>01</span><h3>节点全部变红</h3><p>先查账号到期和剩余流量，再更新订阅。仍异常时切换通用节点并记录发生时间。</p></article>
+          <article><span>02</span><h3>手机能用，Wi-Fi 不能用</h3><p>对比光猫、路由器、运营商、设备和客户端的 IPv6。关闭 IPv6 后复测，确认是否为双栈路径差异。</p></article>
+          <article><span>03</span><h3>晚高峰断流</h3><p>在 20:00–23:00 记录节点、超时和重连，再用手机流量交叉测试，区分家庭网络和出口拥塞。</p></article>
+          <article><span>04</span><h3>仅浏览器可用</h3><p>检查系统代理、TUN/虚拟网卡、DNS 接管和严格路由。浏览器可用不代表所有应用都走了代理。</p></article>
+          <article><span>05</span><h3>部分网站打不开</h3><p>比较通用节点和流量节点，记录 IPv4/IPv6、解析结果、超时位置和是否只发生在单一域名。</p></article>
+          <article><span>06</span><h3>代理断开后仍能访问</h3><p>检查是否自动回落到 DIRECT。需要隐私保护时应采用 fail-closed，代理失败就保持不可达或明确报错。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="marketing-why marketing-variable-section">
+      <div class="marketing-shell marketing-why-grid"><div class="marketing-why-copy"><p class="marketing-eyebrow">单变量原则</p><h2>单变量测试</h2><p>记录一次完整结果，再只切换一个条件。这样能区分家庭网络、客户端和节点出口的问题。</p><ol class="marketing-process-list"><li><span>01</span><div><strong>保存当前状态</strong><p>记下节点、时间、运营商和错误现象。</p></div></li><li><span>02</span><div><strong>只改一个条件</strong><p>只切换一个节点，或只关闭一次 IPv6。</p></div></li><li><span>03</span><div><strong>用同一网站复测</strong><p>保持设备、网站和测试时间一致，记录差异。</p></div></li><li><span>04</span><div><strong>恢复原设置</strong><p>恢复设置后再验证结论是否能够复现。</p></div></li></ol></div><aside class="marketing-why-panel"><p class="marketing-eyebrow">测试记录</p><h3>一行记录就够用</h3><p class="marketing-record">出口 IP · ASN · DNS · IPv6 · 节点 · 时间 · 运营商 · 结果</p><p>发现问题时保留脱敏截图和错误原文，反馈会更容易定位。</p><a class="marketing-text-link" href="trial.html">返回试用测试清单 <span>↗</span></a></aside></div>
+    </section>
+
+    <section class="marketing-section marketing-feedback-section">
+      <div class="marketing-shell marketing-feedback-grid"><div><p class="marketing-eyebrow">反馈前准备</p><h2>故障反馈</h2></div><div><p>设备与系统、客户端版本、网络类型、节点名称、测试时间、现象、已尝试动作和脱敏后的错误截图。不要提交订阅地址、UUID、token、私钥或完整配置。</p><div class="marketing-feedback-links"><a class="marketing-button marketing-button-secondary" href="https://github.com/NanoCloud-Release/NanoCloud/issues/new">提交 issue <span>↗</span></a><a class="marketing-text-link" href="plans.html">重新评估套餐 <span>→</span></a></div></div></div>
+    </section>
+
+    <section class="marketing-final-cta"><div class="marketing-shell marketing-final-grid"><div><p class="marketing-eyebrow">回到测试</p><h2>先确认问题在哪一层</h2><p>把试用流量用在通用节点、流量节点、AI、流媒体和晚高峰交叉测试上。</p></div><div class="marketing-actions"><a class="marketing-button marketing-button-light" href="trial.html">打开试用清单 <span>→</span></a><a class="marketing-button marketing-button-outline-light" href="index.html">返回首页 <span>↗</span></a></div></div></section>
+  </main>
+
+  <footer class="marketing-footer"><div class="marketing-shell marketing-footer-inner"><div><a class="marketing-brand marketing-brand-footer" href="index.html"><span class="marketing-brand-mark">N</span><span>NanoCloud</span></a><p>先定位，再调整。</p></div><nav aria-label="页脚导航"><a href="plans.html">套餐</a><a href="trial.html">试用</a><a href="windows-client.html">客户端</a><a href="https://edu.yuque.men/app/knowledge">官方文档</a></nav></div></footer>
+</body>
+</html>

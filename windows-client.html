@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NanoCloud 客户端连接与 Windows 排障</title>
+  <meta name="description" content="NanoCloud 客户端连接指南：覆盖 Android、Windows、macOS、官方客户端、订阅导入、公开证书和 Windows 常见问题。">
+  <link rel="canonical" href="https://nanocloud-release.github.io/NanoCloud/windows-client.html">
+  <link rel="stylesheet" href="assets/site.css?v=20260905-2">
+</head>
+<body class="marketing-page">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="marketing-header">
+    <div class="marketing-shell marketing-nav-shell">
+      <a class="marketing-brand" href="index.html" aria-label="NanoCloud 首页"><span class="marketing-brand-mark">N</span><span>NanoCloud</span></a>
+      <nav class="marketing-nav" aria-label="主导航"><a href="plans.html">套餐</a><a href="trial.html">试用</a><a href="windows-client.html" aria-current="page">客户端</a><a href="network-troubleshooting.html">排障</a></nav>
+      <a class="marketing-nav-cta" rel="sponsored nofollow" href="https://edu.yuque.men/auth/register?code=KGPt0kjX&amp;utm_source=github_pages&amp;utm_medium=referral&amp;utm_campaign=nanocloud_trial&amp;utm_content=client_nav">领取 2 天试用 <span>↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="marketing-detail-hero">
+      <div class="marketing-shell marketing-detail-hero-grid">
+        <div>
+          <p class="marketing-eyebrow">客户端与节点类型</p>
+          <h1>客户端连接</h1>
+          <p class="marketing-lead">官方客户端按教程配置即可，不用像 Clash Verge 那样自己维护一套复杂配置。也可以用熟悉的开源客户端保留自定义配置。</p>
+          <div class="marketing-actions"><a class="marketing-button marketing-button-primary" href="https://edu.yuque.men/app/knowledge">打开使用文档 <span>↗</span></a><a class="marketing-button marketing-button-secondary" href="trial.html">先做最小测试 <span>→</span></a></div>
+          <p class="marketing-note">官方客户端支持 Android、Windows 和 macOS，使用 Mihomo 内核。不同套餐的订阅内容会变化，节点数量只作当时参考。</p>
+        </div>
+        <aside class="marketing-detail-panel marketing-client-panel" aria-label="客户端信息摘要">
+          <p class="marketing-eyebrow">客户端选择</p>
+          <strong>配置省事，或保留自定义空间</strong>
+          <div class="marketing-detail-list"><div><b>官方客户端</b><span>Android · Windows · macOS</span></div><div><b>控制台一键导入</b><span>Hiddify Next · Clash Verge · FlClash · Karing · sing-box</span></div><div><b>本地转换</b><span>Sub2Clash</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="marketing-section marketing-client-choice">
+      <div class="marketing-shell">
+        <div class="marketing-section-intro"><p class="marketing-eyebrow">需求匹配</p><h2>客户端选择</h2><p>需求最重要。先看是否需要链式代理、自定义分流，或者只是希望快速导入节点。</p></div>
+        <div class="marketing-choice-grid"><article><span>01</span><h3>官方客户端</h3><p>配置省事，节点更完整。开源客户端拉取的节点不好用时，可以优先试试官方客户端。</p><div class="marketing-choice-meta">Android · Windows · macOS</div></article><article><span>02</span><h3>开源客户端</h3><p>适合需要自购商业 ISP 做链式代理，或需要自己维护规则和分流的用户。</p><div class="marketing-choice-meta">Hiddify Next · Clash Verge · FlClash · Karing · sing-box</div></article><article><span>03</span><h3>本地转换</h3><p>熟悉 Clash 配置时，可以让 AI agent 调用 Sub2Clash 解密后再导入。保护措施升级后，方案也可能失效。</p><div class="marketing-choice-meta">Sub2Clash</div></article></div>
+      </div>
+    </section>
+
+    <section class="marketing-section marketing-issue-section">
+      <div class="marketing-shell">
+        <div class="marketing-section-intro"><p class="marketing-eyebrow">六个检查点</p><h2>客户端问题</h2><p>从安装、配置到系统网络逐层确认。每次只改一个变量，保留错误原文和发生步骤。</p></div>
+        <div class="marketing-issue-grid">
+          <article><span>01</span><h3>Windows SmartScreen</h3><p>确认下载来源和文件完整性。只对可信安装包继续操作，不要为了启动未知文件关闭系统保护。</p></article>
+          <article><span>02</span><h3>初始化失败</h3><p>彻底退出旧客户端，卸载旧版并重启 Windows，确认系统时间正确后再从控制台入口安装。</p></article>
+          <article><span>03</span><h3><code>String</code> 索引错误</h3><p>这可能来自旧版客户端与返回配置格式不兼容，也可能与 TLS 信任链有关。先清理旧配置并使用控制台推荐版本。</p></article>
+          <article><span>04</span><h3><code>vcruntime140.dll</code> 缺失</h3><p>按客户端发行说明补齐对应的 Microsoft Visual C++ 运行库，再重启客户端。不要从不明网站下载单个 DLL。</p></article>
+          <article><span>05</span><h3>浏览器可用，其他应用不可用</h3><p>检查系统代理、TUN/虚拟网卡、DNS 接管和权限是否生效。应用可能没有走浏览器的代理设置。</p></article>
+          <article><span>06</span><h3>断开后仍然直连</h3><p>检查规则是否自动回落到 DIRECT。需要隐私保护时启用严格路由或 fail-closed，并用测试网站确认出口行为。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="marketing-safety marketing-certificate-section">
+      <div class="marketing-shell marketing-safety-grid"><div><p class="marketing-eyebrow">证书边界</p><h2><code>https_windows.crt</code> 证书</h2></div><div><p>这是 Windows 客户端可能需要安装的公开信任链证书。公开根证书不等于抓包证书，也不意味着客户端会收集或上传你的私钥。</p><p class="marketing-privacy"><strong>安装后仍报错：</strong>记录 Windows 版本、客户端版本、错误原文和发生步骤，再做网络交叉测试。</p><a class="marketing-text-link" href="https://edu.yuque.men/app/knowledge">查看 Windows 教程 <span>↗</span></a></div></div>
+    </section>
+
+    <section class="marketing-section marketing-install-section">
+      <div class="marketing-shell">
+        <div class="marketing-section-intro"><p class="marketing-eyebrow">安装前</p><h2>安装前检查</h2></div>
+        <ul class="marketing-check-list marketing-install-list"><li><span>01</span><div><strong>只保留一个客户端实例</strong><p>关闭旧进程和残留系统代理，避免多个工具同时接管网络。</p></div></li><li><span>02</span><div><strong>重新复制订阅</strong><p>从控制台复制最新订阅，不在公开反馈中粘贴订阅、UUID、token 或私钥。</p></div></li><li><span>03</span><div><strong>先测通用节点</strong><p>先确认基础连接，再测试需要 IPv6 的流量节点。</p></div></li><li><span>04</span><div><strong>转到网络排障</strong><p>仍然失败时查看<a href="network-troubleshooting.html">网络异常排查</a>，一次只改一个变量。</p></div></li></ul>
+      </div>
+    </section>
+
+    <section class="marketing-final-cta"><div class="marketing-shell marketing-final-grid"><div><p class="marketing-eyebrow">客户端验证</p><h2>先让一台设备跑通</h2><p>安装后先更新订阅、连接通用节点，再按试用清单验证 AI、流媒体和晚高峰。</p></div><div class="marketing-actions"><a class="marketing-button marketing-button-light" href="trial.html">打开试用清单 <span>→</span></a><a class="marketing-button marketing-button-outline-light" href="network-troubleshooting.html">查看网络排障 <span>↗</span></a></div></div></section>
+  </main>
+
+  <footer class="marketing-footer"><div class="marketing-shell marketing-footer-inner"><div><a class="marketing-brand marketing-brand-footer" href="index.html"><span class="marketing-brand-mark">N</span><span>NanoCloud</span></a><p>配置清楚，故障才可定位。</p></div><nav aria-label="页脚导航"><a href="plans.html">套餐</a><a href="trial.html">试用</a><a href="network-troubleshooting.html">网络排障</a><a href="https://edu.yuque.men/app/knowledge">官方文档</a></nav></div></footer>
+</body>
+</html>
