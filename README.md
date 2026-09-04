@@ -147,8 +147,6 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 或者
 [流媒体解锁测试](https://unlock.icmp.ing/)会生成命令，可在 PowerShell 或终端中运行。
 
-<details>
-<summary><strong>展开观察方法与工具</strong></summary>
 
 ### 观察方法与工具
 
@@ -165,7 +163,6 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 | 真实业务验收 | 网页、登录、视频、会议、下载或 AI/API 能不能正常使用 | 直接访问实际要用的服务；流媒体需求优先跑解锁测试 | 必要 |
 | BGP / RPKI 节点判断 | IP 对应的前缀、origin ASN、公告状态、RPKI、AS_PATH 和上游信息 | Agent skill：[`ip-network-inference`](https://github.com/NanoCloud-Release/ip-network-inference)。人工复核用 [BGP.Tools](https://bgp.tools/) 和 [RIPEstat](https://stat.ripe.net/) | 高级 |
 
-</details>
 
 ## 常见问题速查
 未登录也可以使用[官网](https://edu.yuque.men/auth/register?code=KGPt0kjX)右下角的 24 小时 AI 对话。
