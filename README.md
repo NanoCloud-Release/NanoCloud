@@ -8,6 +8,7 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 ![白羊座试用](https://img.shields.io/badge/AFF试用-2天%20%7C%205G-0969da)
 ![每月流量](https://img.shields.io/badge/每月流量-100G--650G-b54708)
 ![同时在线](https://img.shields.io/badge/同时在线-2--10台-8250df)
+
 **[限时年付优惠：9 月 4 日至 9 月 9 日使用 `KFZQWM` 享 85 折](#限时年付优惠码)**
 
 ## NanoCloud 能提供什么
