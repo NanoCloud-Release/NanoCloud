@@ -116,6 +116,8 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 | 登录类网站 | 登录常用 Google、AI 或社交账户（twitter、linuxdo、discord、reddit、X） | 验证次数、识别国家和登录状态 |
 | 故障恢复 | 节点是否 timeout 到影响使用，是否需要频繁切换 | 使用时是否卡顿，切换后多久恢复 |
 
+在终端或Windows Git Bash运行 `bash <(curl -L -s check.unlock.media)`    推荐
+或者
 [流媒体解锁测试](https://unlock.icmp.ing/)会生成命令，可在 PowerShell 或终端中运行。
 
 <details>
@@ -129,7 +131,7 @@ NanoCloud 月付 ¥1 起，最高一档 ¥20。四档套餐提供 100–650G 流
 | 出口 IP | 实际 IPv4/IPv6、ASN、运营商、地区和注册网段 | [IPCheck.DigVPS](https://ipcheck.digvps.com/) | 基础 |
 | IP 信誉 | IP 质量分、代理/VPN 标签、机房属性、邻近网段风险 | [IPCheck.DigVPS](https://ipcheck.digvps.com/)、[IPLark](https://iplark.com/)、[MeowVPS IP 检测](https://meowvps.com/tools/ip-check/) | 可选 |
 | DNS、WebRTC 和代理泄漏 | DNS 是否绕过代理，WebRTC 是否暴露真实地址，IPv4/IPv6 是否走了不同出口 | [BrowserLeaks IP](https://browserleaks.com/ip)、[BrowserLeaks DNS](https://browserleaks.com/dns)、[BrowserLeaks WebRTC](https://browserleaks.com/webrtc)、[DNS Leak Test](https://www.dnsleaktest.com/)、[IPLeak](https://ipleak.net/) | 必要 |
-| 流媒体解锁 | Netflix、Disney+、YouTube Premium 等服务能否播放对应地区内容 | [流媒体解锁测试](https://unlock.icmp.ing/) | 可选 |
+| 流媒体解锁 | Netflix、Disney+、YouTube Premium 等服务能否播放和注册 | 在终端或Windows Git Bash运行 `bash <(curl -L -s check.unlock.media)` | 可选 |
 | 近端延迟和路径 | 选择离自己较近的运营商测点，查看 RTT、抖动、丢包和逐跳路径 | [ITDOG 在线 Ping](https://www.itdog.cn/ping/)、[ITDOG 路由追踪/MTR](https://www.itdog.cn/traceroute/) | 基础 |
 | 本机持续质量 | 本机到目标的连续延迟、丢包和路径变化 | Agent 调用 [NextTrace](https://github.com/nxtrace/NTrace-core) skill，优先使用 `nexttrace_mtr_report`，需要原始记录时再用 `nexttrace_mtr_raw` | 高级 |
 | DNS、TCP 和 HTTP 细节 | DNS 解析、端口连通、HTTP 状态，以及解析、连接和 SSL 耗时 | [ITDOG DNS](https://www.itdog.cn/dns/)、[ITDOG TCPing](https://www.itdog.cn/tcping/)、[ITDOG 网站测速](https://www.itdog.cn/http/) | 可选 |
