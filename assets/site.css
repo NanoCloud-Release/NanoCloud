@@ -3,7 +3,9 @@
 html { scroll-behavior:smooth; scroll-padding-top:76px; }
 body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.7 "Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif; }
 a { color:inherit; }
-img { max-width:100%; display:block; }
+img { max-width:100%; height:auto; display:block; }
+/* Let the browser skip layout/paint for long sections below the fold. */
+main > section:not(.hero):not(.marketing-hero) { content-visibility:auto; contain-intrinsic-size: 0 620px; }
 .shell { width:min(1180px,calc(100% - 48px)); margin:auto; }
 .skip-link { position:fixed; left:12px; top:12px; z-index:20; padding:8px 12px; background:var(--ink); color:#fff; transform:translateY(-160%); }
 .skip-link:focus { transform:none; }
