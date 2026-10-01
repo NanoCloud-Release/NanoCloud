@@ -56,6 +56,11 @@ h1 em { color:var(--green); font-style:normal; }
 .section-head p:not(.kicker) { color:var(--muted); }
 .plan-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
 .plan { min-height:174px; padding:20px; border:1px solid var(--line); background:var(--white); }
+.plan-link-card { position:relative; transition:border-color .18s ease,box-shadow .18s ease; }
+.plan-link-card:hover,.plan-link-card:focus-within { border-color:var(--green); box-shadow:0 8px 18px rgba(20,34,27,.08); }
+.plan-link-card:focus-within { outline:2px solid var(--green); outline-offset:3px; }
+.plan-card-link { position:absolute; inset:0; z-index:1; }
+.plan-link-card em { position:relative; z-index:2; pointer-events:none; }
 .plan.featured { border:2px solid var(--green); transform:translateY(-8px); }
 .plan>div { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
 .plan b { font-size:28px; }
@@ -335,7 +340,10 @@ footer { background:var(--dark); color:#c4d2c8; }
 .marketing-detail-stats span { margin-top: 5px; color: var(--marketing-lime); font-size: 11px; }
 .marketing-pricing-section { background: var(--marketing-white); }
 .marketing-pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.marketing-price-card { position: relative; min-height: 272px; padding: 22px 20px 19px; border: 1px solid var(--marketing-line); background: var(--marketing-paper); }
+.marketing-price-card { position: relative; min-height: 272px; padding: 22px 20px 19px; border: 1px solid var(--marketing-line); background: var(--marketing-paper); transition: border-color .18s ease, box-shadow .18s ease; }
+.marketing-price-card:hover, .marketing-price-card:focus-within { border-color: var(--marketing-green); box-shadow: 0 8px 18px rgba(20,34,27,.08); }
+.marketing-price-card:focus-within { outline: 2px solid var(--marketing-green); outline-offset: 3px; }
+.marketing-price-card > a::after { content:""; position:absolute; inset:0; z-index:1; }
 .marketing-price-card-featured { border: 2px solid var(--marketing-green); transform: translateY(-8px); background: #fbfdfb; }
 .marketing-price-badge { position: absolute; top: -1px; right: -1px; padding: 5px 9px; background: var(--marketing-green); color: #fff; font-size: 11px; font-weight: 800; }
 .marketing-price-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
