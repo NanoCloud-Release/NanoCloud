@@ -14,7 +14,7 @@ NanoCloud 月付 ¥2 起，最高一档 ¥20。四档套餐提供 100–650G 流
 ## NanoCloud 能提供什么
 
 - 四档套餐，分别提供 100G（200Mbps）、300G（500Mbps）、480G（500Mbps）和 650G（不限速）月流量。
-- 香港、东京、新加坡、美国西部等地区节点，协议包括 VLESS、TUIC、Hysteria2 和 mieru。
+- 当前节点状态页可见美国、香港、日本、新加坡和韩国等地区节点，协议包括 VLESS、TUIC、Hysteria2 和 mieru；具体节点、标签和状态以控制台实时信息为准。
 - 官方客户端按教程配置即可，不用像 Clash Verge 那样自己维护一套复杂配置。
 - [@NanoAir_bot](https://t.me/NanoAir_bot) 可以购买、获取订阅、每日签到（每月最高 90G）和提交工单。
 - 白羊座及以上套餐另有 Telegram 专用代理。
