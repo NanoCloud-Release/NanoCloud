@@ -1,6 +1,6 @@
 # NanoCloud 机场：2 元起、2 天 5G 试用与客户端指南
 
-NanoCloud 1元套餐价格已变为月付 ¥2 起，最高一档 ¥20。四档套餐提供 100–650G 流量，可同时连接 2–10 台设备。若依旧寻找1元机场的用户可以使用同一运营商的[Phahtom](https://pin.dianping.men/auth/register?code=vyMwqgOF)
+NanoCloud 原1元套餐价格已变为月付 ¥2 起，最高一档 ¥20。四档套餐提供 100–650G 流量，可同时连接 2–10 台设备。仍在寻找1元100G机场的用户可以使用同一运营商的[Phahtom](https://pin.dianping.men/auth/register?code=vyMwqgOF) （节点基本相同）
 
 想先确认自己的线路是否合适，可以通过 AFF 入口领取白羊座 2 天 / 5G 试用。
 下面按注册、客户端、节点、测试和排障的顺序整理。
