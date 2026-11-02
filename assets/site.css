@@ -1,7 +1,8 @@
+@import url("https://font.sec.miui.com/font/css?family=MiSans:300,400,500,600,700:Chinese_Simplify,Chinese_Traditional,Latin&display=swap");
 :root { --ink:#14221b; --muted:#5e6a63; --line:#dbe2dc; --paper:#f6f8f5; --white:#fff; --green:#1d6b42; --green-dark:#123f2a; --lime:#d9f06b; --orange:#f4a261; --dark:#13221b; --dark-2:#1c3025; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:76px; }
-body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.7 "Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif; }
+body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.7 "MiSans","Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif; }
 a { color:inherit; }
 img { max-width:100%; height:auto; display:block; }
 /* Let the browser skip layout/paint for long sections below the fold. */
@@ -119,7 +120,7 @@ footer { background:var(--dark); color:#c4d2c8; }
   margin: 0;
   background: var(--marketing-paper);
   color: var(--marketing-ink);
-  font-family: "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-family: "MiSans", "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   letter-spacing: 0;
 }
 .marketing-page a { color: inherit; }
@@ -476,7 +477,7 @@ a:focus-visible, button:focus-visible {
 
 /* Document reading layout: keep the site's palette and the author's headings. */
 body, .marketing-page {
-  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-family: "MiSans", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   line-break: strict;
   word-break: normal;
 }
