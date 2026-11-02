@@ -406,6 +406,48 @@ footer { background:var(--dark); color:#c4d2c8; }
 .marketing-feedback-links { display: flex; align-items: center; gap: 22px; margin-top: 24px; }
 .marketing-feedback-links .marketing-button { min-width: 145px; }
 
+.plan-detail-section { border-top: 1px solid var(--line); }
+.plan-detail-section:nth-of-type(even), .plan-node-source { background: #fff; }
+.plan-detail-section .marketing-section-intro { margin-bottom: 24px; }
+.plan-detail-section h3 { margin-top: 28px; }
+.plan-detail-section p, .plan-node-source p { max-width: 850px; }
+.plan-detail-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; }
+.plan-detail-facts > div { padding: 18px; border-top: 3px solid var(--green); background: #e9f0eb; }
+.plan-detail-facts dt { color: var(--muted); font-size: 13px; }
+.plan-detail-facts dd { margin: 6px 0 0; font-weight: 800; }
+@media (max-width: 720px) {
+  .plan-detail-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan-detail-facts > div { padding: 14px; }
+}
+
+/* Keep navigation available to touch and keyboard users. */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #b86b21;
+  outline-offset: 4px;
+}
+[id^="plan-"] { scroll-margin-top: 130px; }
+.plan-card-link, .marketing-plan > a, .marketing-price-card > a { cursor: pointer; }
+.marketing-plan { position: relative; }
+.marketing-plan > a::after { content: ""; position: absolute; inset: 0; }
+.marketing-plan:focus-within { outline: 3px solid var(--green); outline-offset: 3px; }
+.marketing-plan:hover { border-color: var(--green); }
+@media (max-width: 800px) {
+  html { scroll-padding-top: 132px; }
+  .topbar { height: auto; min-height: 112px; flex-wrap: wrap; gap: 0 12px; padding-top: 8px; }
+  .topbar nav { display: flex; order: 3; width: 100%; margin-left: 0; justify-content: space-between; gap: 8px; }
+  .topbar nav a, .marketing-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .header-cta { min-height: 44px; display: inline-flex; align-items: center; }
+}
+@media (max-width: 720px) {
+  .marketing-header { height: auto; }
+  .marketing-nav-shell { min-height: 112px; flex-wrap: wrap; gap: 0 12px; padding-top: 8px; }
+  .marketing-nav { display: flex; order: 3; width: 100%; margin-left: 0; justify-content: space-between; gap: 8px; }
+  .marketing-nav-cta { min-height: 44px; }
+  .marketing-footer nav a, .footer-inner nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .hero { padding-top: 36px; }
+  .marketing-hero-grid, .marketing-detail-hero-grid { padding-top: 36px; }
+}
+
 @media (max-width: 960px) {
   .marketing-detail-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr); gap: 45px; }
   .marketing-pricing-grid { grid-template-columns: repeat(2, 1fr); }
@@ -430,4 +472,60 @@ footer { background:var(--dark); color:#c4d2c8; }
   .marketing-feedback-grid { grid-template-columns: 1fr; gap: 24px; }
   .marketing-feedback-links { align-items: stretch; flex-direction: column; gap: 15px; }
   .marketing-feedback-links .marketing-button { width: 100%; }
+}
+
+/* Document reading layout: keep the site's palette and the author's headings. */
+body, .marketing-page {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  line-break: strict;
+  word-break: normal;
+}
+html { scroll-padding-top: 90px; }
+h1, h2, h3 { letter-spacing: 0; }
+.documentation-page h1 { line-height: 1.2; }
+.documentation-page h2 { line-height: 1.35; }
+.documentation-page h3 { line-height: 1.5; }
+.documentation-page p { text-align: start; overflow-wrap: break-word; }
+.documentation-page main > section { content-visibility: visible; contain-intrinsic-size: none; }
+.documentation-page .marketing-detail-hero-grid,
+.documentation-page .marketing-hero-grid { min-height: 0; padding-top: 48px; padding-bottom: 48px; }
+.documentation-page .marketing-section { padding-top: 56px; padding-bottom: 56px; }
+.documentation-page .marketing-section-intro { margin-bottom: 28px; }
+.documentation-page .marketing-section-intro p,
+.documentation-page .marketing-why-copy > p,
+.plan-detail-section p, .plan-node-source p { max-width: 44em; font-size: 16px; line-height: 1.85; }
+.plan-detail-section > .marketing-shell,
+.plan-node-source > .marketing-shell { max-width: 920px; }
+.plan-detail-section .marketing-section-intro h2 { font-size: clamp(28px, 3vw, 38px); }
+.plan-detail-section h3 { margin-bottom: 12px; font-size: 20px; }
+.plan-detail-section p + p, .plan-node-source p + p { margin-top: 16px; }
+.plan-detail-facts dd { font-variant-numeric: tabular-nums; }
+.plan-node-source a { color: var(--green); text-underline-offset: 3px; }
+.documentation-page .marketing-choice-grid p,
+.documentation-page .marketing-issue-grid p,
+.documentation-page .marketing-check-grid p,
+.documentation-page .marketing-process-list p { font-size: 15px; line-height: 1.8; }
+.page-contents { margin-top: 28px; margin-bottom: 28px; }
+.page-contents details { border-block: 1px solid var(--line); padding-block: 12px; }
+.page-contents summary { width: fit-content; padding: 8px 0; color: var(--ink); font-size: 16px; font-weight: 700; cursor: pointer; }
+.page-contents summary:focus-visible { outline: 3px solid #b86b21; outline-offset: 4px; }
+.page-contents ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 24px; margin: 8px 0; padding: 0; list-style: none; }
+.page-contents a { display: block; width: fit-content; padding-block: 9px; color: var(--green); font-size: 15px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
+.page-contents a:hover { text-decoration-thickness: 2px; }
+.historical-offer { border-block: 1px solid var(--line); }
+.historical-offer > summary { width: min(1180px, calc(100% - 48px)); margin-inline: auto; padding-block: 18px; color: var(--muted); font-size: 14px; cursor: pointer; }
+.historical-offer > summary:focus-visible { outline: 3px solid #b86b21; outline-offset: -3px; }
+.historical-offer .coupon:disabled { cursor: default; opacity: .7; }
+[id^="plan-"], h2[id] { scroll-margin-top: 16px; }
+@media (max-width: 800px) {
+  html { scroll-padding-top: 128px; }
+}
+@media (max-width: 720px) {
+  .page-contents ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .page-contents a { min-height: 44px; }
+  .documentation-page .marketing-detail-hero-grid,
+  .documentation-page .marketing-hero-grid { padding-top: 32px; padding-bottom: 36px; }
+  .documentation-page .marketing-section { padding-block: 40px; }
+  .documentation-page .marketing-section-intro h2 { font-size: 30px; }
+  .plan-detail-section .marketing-section-intro h2 { font-size: 28px; }
 }
